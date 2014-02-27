@@ -12,9 +12,9 @@ Install [Cordova CLI](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md
 npm install -g cordova
 ```
 
-Install `generator-ionic`
+Install `generator-ionicjs`
 ```
-npm install -g generator-ionic
+npm install -g generator-ionicjs
 ```
 
 Make a new directory, and `cd` into it
@@ -22,9 +22,9 @@ Make a new directory, and `cd` into it
 mkdir my-ionic-project && cd $_
 ```
 
-Run `yo ionic`
+Run `yo ionicjs`
 ```
-yo ionic
+yo ionicjs
 ```
 
 Spin up a `connect` server with `watch` and `livereload` for developing in your browser
