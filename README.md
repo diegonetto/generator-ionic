@@ -1,46 +1,52 @@
-# generator-ionic [![Build Status](https://secure.travis-ci.org/diegonetto/generator-ionic.png?branch=master)](https://travis-ci.org/diegonetto/generator-ionic)
+![](http://i.imgur.com/Cedw75X.png)
 
-A generator for [Yeoman](http://yeoman.io).
+# Ionic Framework generator
 
+> Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
-## Getting Started
+**This is currently under active development.**
 
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
+## Usage
+Install [Cordova CLI](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md.html)
 ```
-$ npm install -g yo
+npm install -g cordova
 ```
 
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-ionic from npm, run:
-
+Install `generator-ionic`:
 ```
-$ npm install -g generator-ionic
+npm install -g generator-ionic
 ```
 
-Finally, initiate the generator:
-
+Make a new directory, and `cd` into it:
 ```
-$ yo ionic
+mkdir my-ionic-project && cd $_
 ```
 
-### Getting To Know Yeoman
+Run `yo ionic`
+```
+yo ionic
+```
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+Spin up a `connect` server with `watch` and `livereload` for developing in a browser
+```
+grunt serve
+```
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+## TODO
+1. Building / Emulating doc section
+2. Better starting app using SideBar and a few other components
+3. Workflow doc section
+4. SCSS / LESS support prompt options
+5. Decide if we should use imagemin + svgmin
+6. Add testing support using Karma and integrate with Grunt
+7. Consider pulling in generator-angular as a subgenerator
+8. Add Mocha generator unit tests
+9. Contributing doc section
 
+## Thanks
+Special thanks to the following projects for inspiration:
+1. [AngularJS Generator](https://github.com/yeoman/generator-angular)
+2. [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed)
 
 ## License
 

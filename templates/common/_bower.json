@@ -1,0 +1,8 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.0.0",
+  "dependencies": {
+    "ionic": "~0.9.25"
+  }
+}
+

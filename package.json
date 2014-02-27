@@ -1,9 +1,16 @@
 {
   "name": "generator-ionic",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.0.1",
+  "description": "A generator for the Ionic Framework",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "ionic",
+    "framework",
+    "ionicframework",
+    "angularjs",
+    "hybrid",
+    "mobile",
+    "app"
   ],
   "homepage": "https://github.com/diegonetto/generator-ionic",
   "bugs": "https://github.com/diegonetto/generator-ionic/issues",
@@ -21,7 +28,10 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0"
+    "yeoman-generator": "~0.14.0",
+    "xml2js": "~0.4.1",
+    "mout": "~0.9.0",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
     "mocha": "~1.14.0"
