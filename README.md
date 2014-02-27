@@ -1,4 +1,4 @@
-![](http://i.imgur.com/Cedw75X.png)
+![](http://i.imgur.com/BGrt2QK.png)
 
 # Ionic Framework generator
 
@@ -12,12 +12,12 @@ Install [Cordova CLI](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md
 npm install -g cordova
 ```
 
-Install `generator-ionic`:
+Install `generator-ionic`
 ```
 npm install -g generator-ionic
 ```
 
-Make a new directory, and `cd` into it:
+Make a new directory, and `cd` into it
 ```
 mkdir my-ionic-project && cd $_
 ```
@@ -27,7 +27,7 @@ Run `yo ionic`
 yo ionic
 ```
 
-Spin up a `connect` server with `watch` and `livereload` for developing in a browser
+Spin up a `connect` server with `watch` and `livereload` for developing in your browser
 ```
 grunt serve
 ```
@@ -44,9 +44,7 @@ grunt serve
 9. Contributing doc section
 
 ## Thanks
-Special thanks to the following projects for inspiration:
-1. [AngularJS Generator](https://github.com/yeoman/generator-angular)
-2. [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed)
+Special thanks to the [AngularJS Generator](https://github.com/yeoman/generator-angular) and [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed) projects for inspiration.
 
 ## License
 
