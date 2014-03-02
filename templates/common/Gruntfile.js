@@ -1,4 +1,4 @@
-// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
+// Generated on 2014-03-02 using generator-ionicjs 0.0.1
 'use strict';
 
 module.exports = function (grunt) {
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
@@ -31,21 +31,21 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles']
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       livereload: {
         options: {
-          livereload: '<%%= connect.options.livereload %>'
+          livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
           open: true,
           base: [
             '.tmp',
-            '<%%= yeoman.app %>'
+            '<%= yeoman.app %>'
           ]
         }
       },
@@ -99,12 +99,55 @@ module.exports = function (grunt) {
       },
       server: '.tmp'
     },
+    
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      }
+    },
 
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
-        html: '<%%= yeoman.app %>/index.html',
-        ignorePath: '<%%= yeoman.app %>/'
+        html: '<%= yeoman.app %>/index.html',
+        ignorePath: '<%= yeoman.app %>/'
+      }
+    },
+    
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/img/generated',
+        imagesDir: '<%= yeoman.app %>/img',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        importPath: '<%= yeoman.app %>/bower_components',
+        httpImagesPath: '/img',
+        httpGeneratedImagesPath: '/img/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/img/generated'
+        }
+      },
+      server: {
+        options: {
+          debugInfo: true
+        }
       }
     },
 
@@ -112,7 +155,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%%= yeoman.app %>/index.html',
+      html: '<%= yeoman.app %>/index.html',
       options: {
         dest: 'www',
         flow: {
@@ -139,7 +182,7 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%%= yeoman.app %>'
+        root: '<%= yeoman.app %>'
       }
     },
     htmlmin: {
@@ -165,7 +208,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%%= yeoman.app %>',
+          cwd: '<%= yeoman.app %>',
           dest: 'www',
           src: [
             '*.{ico,png,txt}',
@@ -185,10 +228,24 @@ module.exports = function (grunt) {
       },
       styles: {
         expand: true,
-        cwd: '<%%= yeoman.app %>/styles',
+        cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }
+    },
+    
+    concurrent: {
+      server: [
+        'compass:server'
+      ],
+      test: [
+        'compass'
+      ],
+      dist: [
+        'compass:dist',
+        'imagemin',
+        'svgmin'
+      ]
     },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -199,7 +256,7 @@ module.exports = function (grunt) {
     //     files: {
     //       'www/styles/main.css': [
     //         '.tmp/styles/{,*/}*.css',
-    //         '<%%= yeoman.app %>/styles/{,*/}*.css'
+    //         '<%= yeoman.app %>/styles/{,*/}*.css'
     //       ]
     //     }
     //   }
@@ -242,7 +299,10 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'bower-install',
-      'copy:styles',
+//    if SASS is not intended, uncomment copy:styles below and remove concurrent:server
+//    'copy:styles',
+      'concurrent:server',
+      'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -252,6 +312,8 @@ module.exports = function (grunt) {
     'clean:dist',
     'bower-install',
     'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
     'copy:styles',
     'concat',
     'copy:dist',
