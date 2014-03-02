@@ -2,9 +2,9 @@
 var util = require('util');
 var fs = require('fs');
 var path = require('path');
-var spawn = require('child_process').spawn;
 var yeoman = require('yeoman-generator');
 var mout = require('mout').string;
+var cordova = require('cordova');
 var chalk = require('chalk');
 var xml2js = require('xml2js');
 
@@ -28,18 +28,8 @@ var IonicGenerator = module.exports = function IonicGenerator(args, options, con
 util.inherits(IonicGenerator, yeoman.generators.Base);
 
 IonicGenerator.prototype.cordovaInit = function cordovaInit() {
-  var done = this.async();
-
-  var cordova = spawn('cordova', ['create', '.', 'com.ionicframework.' + mout.camelCase(this.appName), this.appName])
-  cordova.stdout.on('data', function(data) {
-    console.log(chalk.yellow(data.toString('utf8')));
-  });
-  cordova.stderr.on('data', function(data) {
-    console.log(chalk.red(data.toString('utf8')));
-  });
-  cordova.on('close', function(code) {
-    done();
-  });
+  cordova.create('.', this.appName, this.appName);
+  console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appName));
 };
 
 IonicGenerator.prototype.setupEnv = function setupEnv() {
@@ -64,6 +54,7 @@ IonicGenerator.prototype.appFiles = function appFiles() {
   this.template('views/index.html', 'app/index.html');
 };
 
+// TODO: See if these options that the ionic seed project set config.xml are really needed
 IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
   console.log(chalk.yellow('Attemping to overwrite Cordova generated files with example app skeleton.'));
   console.log(chalk.yellow('Type "y" and hit Enter to confirm overwrites:'));
