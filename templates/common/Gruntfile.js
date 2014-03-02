@@ -31,9 +31,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles']
+      compass: {
+        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -99,12 +99,55 @@ module.exports = function (grunt) {
       },
       server: '.tmp'
     },
+    
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      }
+    },
 
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
         html: '<%%= yeoman.app %>/index.html',
         ignorePath: '<%%= yeoman.app %>/'
+      }
+    },
+    
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/img/generated',
+        imagesDir: '<%%= yeoman.app %>/img',
+        javascriptsDir: '<%%= yeoman.app %>/scripts',
+        fontsDir: '<%%= yeoman.app %>/styles/fonts',
+        importPath: '<%%= yeoman.app %>/bower_components',
+        httpImagesPath: '/img',
+        httpGeneratedImagesPath: '/img/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      dist: {
+        options: {
+          generatedImagesDir: '<%%= yeoman.dist %>/img/generated'
+        }
+      },
+      server: {
+        options: {
+          debugInfo: true
+        }
       }
     },
 
@@ -190,6 +233,20 @@ module.exports = function (grunt) {
         src: '{,*/}*.css'
       }
     },
+    
+    concurrent: {
+      server: [
+        'compass:server'
+      ],
+      test: [
+        'compass'
+      ],
+      dist: [
+        'compass:dist',
+        'imagemin',
+        'svgmin'
+      ]
+    },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
@@ -242,7 +299,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'bower-install',
-      'copy:styles',
+      'concurrent:server',
+      'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -252,7 +310,8 @@ module.exports = function (grunt) {
     'clean:dist',
     'bower-install',
     'useminPrepare',
-    'copy:styles',
+    'concurrent:dist',
+    'autoprefixer',
     'concat',
     'copy:dist',
     'cssmin',
