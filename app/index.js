@@ -52,7 +52,6 @@ IonicGenerator.prototype.appFiles = function appFiles() {
   this.template('javascript/controllers.js', 'app/scripts/controllers.js');
   this.template('javascript/services.js', 'app/scripts/services.js');
   this.template('views/index.html', 'app/index.html');
-  this.template('styles/main.sass', 'app/styles/main.sass');
 };
 
 // TODO: See if these options that the ionic seed project set config.xml are really needed
