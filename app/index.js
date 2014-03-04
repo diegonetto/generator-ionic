@@ -57,7 +57,6 @@ IonicGenerator.prototype.setupEnv = function setupEnv() {
 IonicGenerator.prototype.copyStyles = function copyStyles() {
   var sass = this.compass;
   var mainFile = 'main.' + (sass ? 'sass' : 'css');
-  console.log(mainFile);
 
   this.copy('styles/' + mainFile, 'app/styles/' + mainFile);
 };
@@ -78,7 +77,7 @@ IonicGenerator.prototype.appFiles = function appFiles() {
 };
 
 // TODO: See if these options that the ionic seed project set config.xml are really needed
-IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
+/*IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
   console.log(chalk.yellow('Attemping to overwrite Cordova generated files with example app skeleton.'));
   console.log(chalk.yellow('Type "y" and hit Enter to confirm overwrites:'));
   var parser = new xml2js.Parser({ normalize: true });
@@ -98,6 +97,6 @@ IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
       done();
     }.bind(this));
   }.bind(this));
-};
+};*/
 
 
