@@ -35,7 +35,11 @@
     "cordova": "~3.4.0-0.1.2"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "grunt": "~0.4.2",
+    "load-grunt-tasks": "~0.4.0",
+    "marked": "~0.3.1",
+    "mocha": "~1.14.0",
+    "semver": "~2.2.1"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
