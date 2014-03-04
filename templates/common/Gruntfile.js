@@ -231,6 +231,12 @@ module.exports = function (grunt) {
         cwd: '<%%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      vendor: {
+        expand: true,
+        cwd: '<%%= yeoman.app %>/vendor',
+        dest: '.tmp/styles/',
+        src: '{,*/}*.css'
       }
     },
     
@@ -300,6 +306,7 @@ module.exports = function (grunt) {
       'clean:server',
       'bower-install',
       'concurrent:server',
+      'copy:vendor',
       'autoprefixer',
       'connect:livereload',
       'watch'
@@ -311,6 +318,7 @@ module.exports = function (grunt) {
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
+    'copy:vendor',
     'autoprefixer',
     'concat',
     'copy:dist',
