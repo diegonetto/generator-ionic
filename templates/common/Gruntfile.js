@@ -30,11 +30,11 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
-      },
+      },<% if (compass) { %>
       compass: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
-      },
+      },<% } %>
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -122,6 +122,7 @@ module.exports = function (grunt) {
       }
     },
     
+    <% if (compass) { %>
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
@@ -150,6 +151,7 @@ module.exports = function (grunt) {
         }
       }
     },
+    <% } %>
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -241,14 +243,14 @@ module.exports = function (grunt) {
     },
     
     concurrent: {
-      server: [
-        'compass:server'
+      server: [<% if (compass) { %>
+        'compass:server'<% } %>
       ],
-      test: [
-        'compass'
+      test: [<% if (compass) { %>
+        'compass'<% } %>
       ],
-      dist: [
-        'compass:dist',
+      dist: [<% if (compass) { %>
+        'compass:dist',<% } %>
         'imagemin',
         'svgmin'
       ]

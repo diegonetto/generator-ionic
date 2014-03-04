@@ -32,11 +32,34 @@ IonicGenerator.prototype.cordovaInit = function cordovaInit() {
   console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appName));
 };
 
+IonicGenerator.prototype.askForCompass = function askForCompass() {
+  var done = this.async();
+
+  this.prompt([{
+    type: 'confirm',
+    name: 'compass',
+    message: "Would you like to use Sass (with Compass)?",
+    default: true
+  }], function(props) {
+    this.compass = props.compass;
+
+    done();
+  }.bind(this));
+};
+
 IonicGenerator.prototype.setupEnv = function setupEnv() {
   // Copies the contents of the generator example app
   // directory into your users new application path
   this.sourceRoot(path.join(__dirname, '../templates/'));
   this.directory('common/root', '.', true);
+};
+
+IonicGenerator.prototype.copyStyles = function copyStyles() {
+  var sass = this.compass;
+  var mainFile = 'main.' + (sass ? 'sass' : 'css');
+  console.log(mainFile);
+
+  this.copy('styles/' + mainFile, 'app/styles/' + mainFile);
 };
 
 IonicGenerator.prototype.packageFiles = function packageFiles() {
