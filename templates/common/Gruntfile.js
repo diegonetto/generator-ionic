@@ -198,7 +198,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'www',
-          src: ['*.html', 'views/{,*/}*.html'],
+          src: ['*.html', 'templates/{,*/}*.html'],
           dest: 'www'
         }]
       }
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'templates/{,*/}*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*'
@@ -250,9 +250,7 @@ module.exports = function (grunt) {
         'compass'<% } %>
       ],
       dist: [<% if (compass) { %>
-        'compass:dist',<% } %>
-        'imagemin',
-        'svgmin'
+        'compass:dist'<% } %>
       ]
     },
 
@@ -323,6 +321,7 @@ module.exports = function (grunt) {
     'copy:vendor',
     'autoprefixer',
     'concat',
+    'ngmin',
     'copy:dist',
     'cssmin',
     'uglify',
