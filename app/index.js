@@ -30,7 +30,7 @@ var IonicGenerator = module.exports = function IonicGenerator(args, options, con
 util.inherits(IonicGenerator, yeoman.generators.Base);
 
 IonicGenerator.prototype.cordovaInit = function cordovaInit() {
-  cordova.create('.', this.appName, this.appName);
+  cordova.create('.', 'com.example.' + this.appName, this.appName);
   console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appName));
 };
 
