@@ -47,16 +47,14 @@ or emulate a platform target
 grunt emulate:ios
 ```
 
-### Putting it all together
-Let's walk through an example workflow. We're assuming you've followed the [usage](https://github.com/diegonetto/generator-ionic#usage) directions are inside your app's directory.
+## Putting it all together
+Let's walk through an example workflow. We're assuming you've followed the [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
 
-We'll start by running our app in a browser so we can make fast changes.
+We'll start by running our app in a browser so we can make a few changes.
 ```
 grunt serve
 ```
-Play around with livereload by changing some of the styles in `app/styles/main.css` or HTML to one of the files in `app/templates/`
-
-When you're ready, lets go ahead and build the assets for Cordova to consume and also spot check that we didn't bork any code during the build process. We can do that with another handy grunt task that runs the build process and then launches a `connect` server for use to preview the app with our built assets.
+Play around with livereload by changing some of the styles in `app/styles/main.css` or HTML in one of the files in `app/templates/`. When you're ready, lets go ahead and build the assets for Cordova to consume and also spot check that we didn't bork any code during the build process. We can do that with another handy grunt task that runs the build process and then launches a `connect` server for use to preview the app with our built assets.
 ```
 grunt serve:dist
 ```
