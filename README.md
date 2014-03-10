@@ -36,7 +36,7 @@ Running `grunt serve` enhances your workflow by allowing you to rapidly build Io
 Once you're ready to test your application in a simulator, `grunt build` will concatenate, obfuscate, and minify your JavaScript, HTML, and CSS files and copy over the resulting assets into your app's `www/` directory so they are ready to be served by Cordova.
 
 ### Cordova commands
-To make our lives a bit simpler, the `cordova` library has been packaged as a part of this generator and delegated via Grunt tasks. To invoke Cordova, simply run the command you would normally have, but replace `cordova` with `grunt` and `spaces` with `:` (the way grunt chains task arguments).
+To make our lives a bit simpler, the `cordova` library has been packaged as a part of this generator and delegated via Grunt tasks. To invoke Cordova, simply run the command you would normally have, but replace `cordova` with `grunt` and `spaces` with `:` (the way Grunt chains task arguments).
 
 For example, lets say you want to add iOS as a platform target for your Ionic app
 ```
@@ -54,7 +54,7 @@ We'll start by running our app in a browser so we can make a few changes.
 ```
 grunt serve
 ```
-Play around with livereload by changing some of the styles in `app/styles/main.css` or HTML in one of the files in `app/templates/`. When you're ready, lets go ahead and build the assets for Cordova to consume and also spot check that we didn't bork any code during the build process. We can do that with another handy grunt task that runs the build process and then launches a `connect` server for use to preview the app with our built assets.
+Play around with livereload by changing some of the styles in `app/styles/main.css` or HTML in one of the files in `app/templates/`. When you're ready, lets go ahead and build the assets for Cordova to consume and also spot check that we didn't bork any code during the build process. We can do that with another handy Grunt task that runs the build process and then launches a `connect` server for use to preview the app with our built assets.
 ```
 grunt serve:dist
 ```
@@ -64,7 +64,7 @@ npm install -g ios-sim
 grunt platform:add:ios
 grunt emulate:ios
 ```
-You may have realized that when the Grunt build process is run, it also triggers the Cordova build system as well, so you end up with a beautifully packaged mobile app in a single command.
+You may have realized that when the Grunt build process is run, it triggers the Cordova build system as well, so you end up with a beautifully packaged mobile app in a single command.
 
 Congratulations - You're now up and running with the gorgeous Ionic Framework powered by an intelligent workflow and sophisticated build system!
 
