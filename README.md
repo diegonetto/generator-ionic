@@ -32,7 +32,7 @@ The included Grunt build system provides sensible defaults to help optimize and 
 ### Local browser development
 Running `grunt serve` enhances your workflow by allowing you to rapidly build Ionic apps without having to constantly re-run your platform simulator. Since we spin up a `connect` server with `watch` and `livereload` tasks, you can freely edit your CSS (or SCSS/SASS files if you chose to use Compass), HTML, and JavaScript files and changes will be quickly reflected in your browser.
 
-### Bulding assets for Cordova
+### Building assets for Cordova
 Once you're ready to test your application in a simulator, `grunt build` will concatenate, obfuscate, and minify your JavaScript, HTML, and CSS files and copy over the resulting assets into your app's `www/` directory so they are ready to be served by Cordova.
 
 ### Cordova commands
@@ -58,15 +58,15 @@ Play around with livereload by changing some of the styles in `app/styles/main.c
 ```
 grunt serve:dist
 ```
-
-If that looks good the next step is to add a platform target and then  emulate our app. In order for us to launch the iOS simulator from the command line, we'll have to install the `ios-sim` package. (If you forget to do this, Cordova will kindly remind you).
+If everything looks good the next step is to add a platform target and then emulate our app. In order for us to launch the iOS simulator from the command line, we'll have to install the `ios-sim` package. (If you forget to do this, Cordova will kindly remind you).
 ```
 npm install -g ios-sim
 grunt platform:add:ios
 grunt emulate:ios
 ```
+You may have realized that when the Grunt build process is run, it also triggers the Cordova build system as well, so you end up with a beautifully packaged mobile app in a single command.
 
-Congratulations - You're now up and running with the gorgeous Ionic Framework and armed with an intelligent workflow and powerful build system!
+Congratulations - You're now up and running with the gorgeous Ionic Framework powered by an intelligent workflow and sophisticated build system!
 
 ## TODO
 1. ~~building / Emulating doc section~~
