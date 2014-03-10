@@ -9,14 +9,13 @@ var chalk = require('chalk');
 var xml2js = require('xml2js');
 var common = require('../lib/common');  
 
-console.log(common.ionic);
-
 var IonicGenerator = module.exports = function IonicGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.argument('appName', { type: String, required: false });
   this.appName = this.appName || path.basename(process.cwd());
   this.appName = mout.pascalCase(this.appName);
+  this.appId = 'com.example.' + this.appName;
   this.appPath = 'app';
   this.root = process.cwd();
 
@@ -29,9 +28,10 @@ var IonicGenerator = module.exports = function IonicGenerator(args, options, con
 
 util.inherits(IonicGenerator, yeoman.generators.Base);
 
-IonicGenerator.prototype.cordovaInit = function cordovaInit() {
-  cordova.create('.', 'com.example.' + this.appName, this.appName);
-  console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appName));
+IonicGenerator.prototype.init = function init() {
+  console.log(common.ionic);
+  cordova.create('.', this.appId, this.appName);
+  console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appId + '"'));
 };
 
 IonicGenerator.prototype.askForCompass = function askForCompass() {
