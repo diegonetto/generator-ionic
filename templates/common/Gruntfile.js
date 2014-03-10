@@ -38,6 +38,10 @@ module.exports = function (grunt) {
       compass: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
+      },<% } else { %>
+      styles: {
+        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
       gruntfile: {
         files: ['Gruntfile.js']
@@ -248,13 +252,16 @@ module.exports = function (grunt) {
     
     concurrent: {
       server: [<% if (compass) { %>
-        'compass:server'<% } %>
+        'compass:server',<% } %>
+        'copy:styles'
       ],
       test: [<% if (compass) { %>
-        'compass'<% } %>
+        'compass',<% } %>
+        'copy:styles'
       ],
       dist: [<% if (compass) { %>
-        'compass:dist'<% } %>
+        'compass:dist',<% } %>
+        'copy:styles'
       ]
     },
 
