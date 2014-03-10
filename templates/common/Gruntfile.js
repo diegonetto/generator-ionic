@@ -307,10 +307,12 @@ module.exports = function (grunt) {
 
   });
 
-  // Register tasks for all Cordova commands
+  // Register tasks for all Cordova commands, but namespace
+  // the cordova:build since we already have a build task.
   _.functions(cordova).forEach(function(name) {
+    name = (name === 'build') ? 'cordova:build' : name;
     grunt.registerTask(name, function () {
-      this.args.unshift(name);
+      this.args.unshift(name.replace('cordova:', ''));
       var done = this.async();
       var cmd = spawn('./node_modules/cordova/bin/cordova', this.args);
       cmd.stdout.on('data', function(data) {
@@ -354,7 +356,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'cordova:build'
   ]);
 
   grunt.registerTask('default', [
