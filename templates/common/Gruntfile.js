@@ -322,7 +322,8 @@ module.exports = function (grunt) {
         grunt.log.error(data);
       });
       cmd.on('close', function(code) {
-        done(code ? false : true);
+        code = (name === 'cordova:build') ? true : code ? false : true;
+        done(code);
       });
     });
   });
