@@ -7,7 +7,9 @@ var mout = require('mout').string;
 var cordova = require('cordova');
 var chalk = require('chalk');
 var xml2js = require('xml2js');
+var common = require('../lib/common');  
 
+console.log(common.ionic);
 
 var IonicGenerator = module.exports = function IonicGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
