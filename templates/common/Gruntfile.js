@@ -1,6 +1,10 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 
+var _ = require('lodash');
+var cordova = require('cordova');
+var spawn = require('child_process').spawn;
+
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -296,6 +300,23 @@ module.exports = function (grunt) {
 
   });
 
+  // Register tasks for all Cordova commands
+  _.functions(cordova).forEach(function(name) {
+    grunt.registerTask(name, function () {
+      this.args.unshift(name);
+      var done = this.async();
+      var cmd = spawn('./node_modules/cordova/bin/cordova', this.args);
+      cmd.stdout.on('data', function(data) {
+        grunt.log.writeln(data);
+      });
+      cmd.stderr.on('data', function(data) {
+        grunt.log.error(data);
+      });
+      cmd.on('close', function(code) {
+        done(code ? false : true);
+      });
+    });
+  });
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
