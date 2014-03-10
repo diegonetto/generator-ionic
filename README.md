@@ -31,12 +31,20 @@ Spin up a `connect` server with `watch` and `livereload` for developing in your 
 ```
 grunt serve
 ```
+## Workflow
+The included Grunt build system provides sensible defaults to help optimize and automate several aspects of your workflow when developing hybrid-mobile apps using the Ionic Framework.
+
+### Local development via a browser
+Running `grunt serve` allows you to rapdily build new views for Ionic apps without having to re-run your platform simulator. Since we spin up a `connect` server with `watch` and `livereload` tasks, you can freely edit your CSS (or SCSS/SASS files if you chose to use Compass), HTML, and JavaScript files and changes will be quickly reflected in your browser. Enjoy!
+
+### Bulding Cordova Assets with `grunt build`
+Once you're ready to test your application in a simulator, `grunt build` will concatenate, obfuscate, and minify your JavaScript, HTML, and CSS files and copy over the resulting assets into your app's `www/` folder so they are ready to be served by Cordova.
 
 ## TODO
 1. Building / Emulating doc section
 2. Better starting app using SideBar and a few other components
-3. Workflow doc section
-4. SCSS / LESS support prompt options
+3. ~~Workflow doc section~~
+4. ~~SCSS prompt options~~
 5. Decide if we should use imagemin + svgmin
 6. Add testing support using Karma and integrate with Grunt
 7. Consider pulling in generator-angular as a subgenerator
