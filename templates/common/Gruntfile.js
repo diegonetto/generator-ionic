@@ -192,7 +192,8 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%%= yeoman.app %>'
+        root: '<%%= yeoman.app %>',
+        noRebase: true
       }
     },
     htmlmin: {
@@ -222,10 +223,8 @@ module.exports = function (grunt) {
           dest: 'www',
           src: [
             'images/*.{ico,png,txt}',
-            '.htaccess',
             '*.html',
             'templates/{,*/}*.html',
-            'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
@@ -242,6 +241,12 @@ module.exports = function (grunt) {
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       },
+      fonts: {
+        expand: true,
+        cwd: 'app/bower_components/ionic/release/fonts/',
+        dest: '<%%= yeoman.app %>/fonts/',
+        src: '*'
+      },
       vendor: {
         expand: true,
         cwd: '<%%= yeoman.app %>/vendor',
@@ -253,15 +258,21 @@ module.exports = function (grunt) {
     concurrent: {
       server: [<% if (compass) { %>
         'compass:server',<% } %>
-        'copy:styles'
+        'copy:styles',
+        'copy:vendor',
+        'copy:fonts'
       ],
       test: [<% if (compass) { %>
         'compass',<% } %>
-        'copy:styles'
+        'copy:styles',
+        'copy:vendor',
+        'copy:fonts'
       ],
       dist: [<% if (compass) { %>
         'compass:dist',<% } %>
-        'copy:styles'
+        'copy:styles',
+        'copy:vendor',
+        'copy:fonts'
       ]
     },
 
@@ -337,7 +348,6 @@ module.exports = function (grunt) {
       'clean:server',
       'bower-install',
       'concurrent:server',
-      'copy:vendor',
       'autoprefixer',
       'connect:livereload',
       'watch'
@@ -349,7 +359,6 @@ module.exports = function (grunt) {
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
-    'copy:vendor',
     'autoprefixer',
     'concat',
     'ngmin',
