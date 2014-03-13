@@ -320,19 +320,19 @@ module.exports = function (grunt) {
 
   // Register tasks for all Cordova commands, but namespace
   // the cordova:build since we already have a build task.
-  _.functions(cordova).forEach(function(name) {
+  _.functions(cordova).forEach(function (name) {
     name = (name === 'build') ? 'cordova:build' : name;
     grunt.registerTask(name, function () {
       this.args.unshift(name.replace('cordova:', ''));
       var done = this.async();
       var cmd = spawn('./node_modules/cordova/bin/cordova', this.args);
-      cmd.stdout.on('data', function(data) {
+      cmd.stdout.on('data', function (data) {
         grunt.log.writeln(data);
       });
-      cmd.stderr.on('data', function(data) {
+      cmd.stderr.on('data', function (data) {
         grunt.log.error(data);
       });
-      cmd.on('close', function(code) {
+      cmd.on('close', function (code) {
         code = (name === 'cordova:build') ? true : code ? false : true;
         done(code);
       });
