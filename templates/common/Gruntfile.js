@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/unit/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },<% if (compass) { %>
       compass: {
@@ -89,8 +89,15 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: [
-        'Gruntfile.js'
-      ]
+        'Gruntfile.js',
+        '<%%= yeoman.app %>/scripts/**/*.js'
+      ],
+      test: {
+        options: {
+          jshintrc: 'test/.jshintrc'
+        },
+        src: ['test/unit/**/*.js']
+      }
     },
 
     // Empties folders to start fresh
@@ -302,7 +309,16 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
-   // ngmin tries to make the code safe for minification automatically by
+    // Test settings
+    // TODO: configure providers, instanbul, reporting, etc
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
+    },
+
+    // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
     ngmin: {
@@ -354,6 +370,14 @@ module.exports = function (grunt) {
     ]);
   });
 
+  grunt.registerTask('test', [
+    'clean:server',
+    'concurrent:test',
+    'autoprefixer',
+//    'connect:test',
+    'karma'
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'bower-install',
@@ -372,6 +396,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
+    'test',
     'build'
   ]);
 };

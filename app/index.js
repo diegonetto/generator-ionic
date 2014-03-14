@@ -78,6 +78,10 @@ IonicGenerator.prototype.appFiles = function appFiles() {
   this.template('views/index.html', 'app/index.html');
 };
 
+IonicGenerator.prototype.testFiles = function testFiles() {
+  this.template('javascript/spec/controllers.js', 'test/spec/controllers.js');
+};
+
 // TODO: See if these options that the ionic seed project set config.xml are really needed
 /*IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
   console.log(chalk.yellow('Attemping to overwrite Cordova generated files with example app skeleton.'));
