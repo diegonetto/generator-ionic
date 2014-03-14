@@ -4,3 +4,4 @@ www
 .sass-cache
 .DS_Store
 <%= appPath %>/bower_components
+coverage

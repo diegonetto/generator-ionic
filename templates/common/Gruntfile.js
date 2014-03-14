@@ -30,10 +30,6 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         }
-      },
-      jsTest: {
-        files: ['test/unit/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
       },<% if (compass) { %>
       compass: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -43,6 +39,10 @@ module.exports = function (grunt) {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
+      karma: {
+        files: ['<%%= yeoman.app %>/scripts/**/*.js', 'test/spec/**/*.js'],
+        tasks: ['newer:jshint:test', 'karma:unit:run']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -78,6 +78,13 @@ module.exports = function (grunt) {
       dist: {
         options: {
           base: 'www'
+        }
+      },
+      coverage: {
+        options: {
+          port: 9002,
+          open: true,
+          base: ['coverage']
         }
       }
     },
@@ -310,11 +317,30 @@ module.exports = function (grunt) {
     // },
 
     // Test settings
-    // TODO: configure providers, instanbul, reporting, etc
+    // These will override any config options in karma.conf.js
     karma: {
-      unit: {
+      options: {
         configFile: 'karma.conf.js',
-        singleRun: true
+        reporters: ['dots', 'coverage'],
+        preprocessors: {
+          'app/scripts/**/*.js': ['coverage']
+        },
+        coverageReporter: {
+          reporters: [
+            { type: 'html', dir: 'coverage/' },
+            { type: 'text-summary' }
+          ]
+        }
+      },
+      unit: {
+        // Change this to 'Chrome', 'Firefox', etc. Note that you will need
+        // to install a karma launcher plugin for browsers other than Chrome.
+        browsers: ['PhantomJS'],
+        background: true
+      },
+      continuous: {
+        browsers: ['PhantomJS'],
+        singleRun: true,
       }
     },
 
@@ -374,8 +400,8 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
-//    'connect:test',
-    'karma'
+    'karma:unit:start',
+    'watch'
   ]);
 
   grunt.registerTask('build', [
@@ -394,9 +420,11 @@ module.exports = function (grunt) {
     'cordova:build'
   ]);
 
+  grunt.registerTask('coverage', ['karma:continuous', 'connect:coverage:keepalive']);
+
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
+    'karma:continuous',
     'build'
   ]);
 };
