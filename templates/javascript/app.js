@@ -1,9 +1,9 @@
-
+'use strict';
 
 angular.module('<%= appName %>', ['ionic', '<%= appName %>.services', '<%= appName %>.controllers'])
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -13,9 +13,9 @@ angular.module('<%= appName %>', ['ionic', '<%= appName %>.services', '<%= appNa
 
     // setup an abstract state for the tabs directive
     .state('tab', {
-      url: "/tab",
+      url: '/tab',
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: 'templates/tabs.html'
     })
 
     // the pet tab has its own child nav-view and history

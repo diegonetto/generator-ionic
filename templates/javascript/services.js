@@ -1,9 +1,11 @@
+'use strict';
+
 angular.module('<%= appName %>.services', [])
 
 /**
  * A simple example service that returns some data.
  */
-.factory('PetService', function() {
+.factory('PetService', function () {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -15,12 +17,12 @@ angular.module('<%= appName %>.services', [])
   ];
 
   return {
-    all: function() {
+    all: function () {
       return pets;
     },
-    get: function(petId) {
+    get: function (petId) {
       // Simple index lookup
       return pets[petId];
     }
-  }
+  };
 });
