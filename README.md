@@ -47,8 +47,8 @@ or emulate a platform target
 grunt emulate:ios
 ```
 
-## Putting it all together
-Let's walk through an example workflow. We're assuming you've followed the [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
+## Initial Walkthrough
+To help you hit the ground running, let's walk through an example workflow together. We're assuming you've followed the [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
 
 We'll start by running our app in a browser so we can make a few changes.
 ```
@@ -67,6 +67,20 @@ grunt emulate:ios
 You may have realized that when the Grunt build process is run, it triggers the Cordova build system as well, so you end up with a beautifully packaged mobile app in a single command.
 
 Congratulations - You're now up and running with the gorgeous Ionic Framework powered by an intelligent workflow and sophisticated build system!
+
+## Testing Your App
+To lesson the pain of testing your application, this generator configures your project with a handful of libraries that will hopefully make testing your application, dare I say, more enjoyable.
+
+![Comic](http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/100000/10000/6000/600/116640/116640.strip.gif)
+
+### Unit Tests
+Coming soon!
+
+### End2End Tests
+Coming soon!
+
+### Code Coverage
+Coming soon!
 
 ## TODO
 1. ~~building / Emulating doc section~~
