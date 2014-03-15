@@ -39,10 +39,6 @@ module.exports = function (grunt) {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
-      karma: {
-        files: ['<%%= yeoman.app %>/scripts/**/*.js', 'test/spec/**/*.js'],
-        tasks: ['newer:jshint:test', 'karma:unit:run']
-      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -381,6 +377,18 @@ module.exports = function (grunt) {
     });
   });
 
+  // Dynamically configure `karma` target of `watch` task so that
+  // we don't have to run the karma test server as part of `grunt serve`
+  grunt.registerTask('watch:karma', function () {
+    var watch = grunt.config.get('watch');
+    watch.karma = {
+      files: ['<%%= yeoman.app %>/scripts/**/*.js', 'test/spec/**/*.js'],
+      tasks: ['newer:jshint:test', 'karma:unit:run']
+    };
+    grunt.config.set('watch', watch);
+    return grunt.task.run(['watch']);
+  });
+
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -401,7 +409,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'karma:unit:start',
-    'watch'
+    'watch:karma'
   ]);
 
   grunt.registerTask('build', [
