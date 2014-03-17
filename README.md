@@ -4,8 +4,6 @@
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
-**This is currently under active development.**
-
 ## Usage
 Install `generator-ionicjs`
 ```
@@ -84,17 +82,17 @@ Undo your modification and ensure that all tests are passing before continuing o
 Coming soon!
 
 ### Code Coverage
-So you've finished writing your tests, why not show the world (or just your team) how watertight your application has become? Using [Istanbul](http://gotwarlost.github.io/istanbul/) - which was built at Yahoo - we can generate pretty code coverage reports that do just that!
+So you've finished writing your tests, why not showoff just how watertight your application has become? Using [Istanbul](http://gotwarlost.github.io/istanbul/) - which was built at Yahoo - we can generate visually engaging code coverage reports that do just that!
 
 Our beloved generator has done all the hard work for you, so go ahead and see these coverage reports in action by running `grunt coverage`.
 
-If this is your first time using Istanbul, take a look around. It will help you spot gaps in your unit tests and lets face it, the more visual gratification we can get during our testing stage, the greater the likelihood of us sittng down and writing these tests to begin with!
+If this is your first time using Istanbul, take a look around. It will help you spot gaps in your unit tests and lets face it, the more visual gratification we can get during our testing stage, the greater the likelihood of us sitting down and writing these tests to begin with!
 
 ## Wrapping it up
 If you made it this far then congratulations! You're now up and running with the gorgeous Ionic Framework powered by an intelligent workflow and sophisticated build system - all facilitated by the addition of just a few commands!
 
 ## Special Thanks To
-* The pioneers behind [Yeoman](http://yeoman.io/) for building an intelligent workflow managemnt solution.
+* The pioneers behind [Yeoman](http://yeoman.io/) for building an intelligent workflow management solution.
 * The [AngularJS Generator](https://github.com/yeoman/generator-angular) and [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed) projects for inspiration.
 * The visionaries at [Drifty](http://drifty.com) for creating the [Ionic Framework](http://ionicframework.com/).
 
