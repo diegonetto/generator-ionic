@@ -380,12 +380,11 @@ module.exports = function (grunt) {
   // Dynamically configure `karma` target of `watch` task so that
   // we don't have to run the karma test server as part of `grunt serve`
   grunt.registerTask('watch:karma', function () {
-    var watch = grunt.config.get('watch');
-    watch.karma = {
+    var karma = {
       files: ['<%%= yeoman.app %>/scripts/**/*.js', 'test/spec/**/*.js'],
       tasks: ['newer:jshint:test', 'karma:unit:run']
     };
-    grunt.config.set('watch', watch);
+    grunt.config.set('watch', karma);
     return grunt.task.run(['watch']);
   });
 
