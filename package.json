@@ -1,6 +1,6 @@
 {
   "name": "generator-ionicjs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A generator for the Ionic Framework",
   "keywords": [
     "yeoman-generator",
@@ -39,7 +39,9 @@
     "load-grunt-tasks": "~0.4.0",
     "marked": "~0.3.1",
     "mocha": "~1.14.0",
-    "semver": "~2.2.1"
+    "semver": "~2.2.1",
+    "grunt-conventional-changelog": "~1.1.0",
+    "grunt-release": "~0.7.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
