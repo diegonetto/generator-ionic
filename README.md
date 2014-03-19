@@ -44,9 +44,11 @@ and emulate a platform target
 ```
 grunt emulate:ios
 ```
-or add a plugin
+or add a plugin by specifying either its full repository URL or namespace from the [Plugins Registry](http://plugins.cordova.io)
 ```
 grunt plugin:add:https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
+grunt plugin:add:org.apache.cordova.device
+grunt plugin:add:org.apache.cordova.network-information
 ```
 
 ## Initial Walkthrough
