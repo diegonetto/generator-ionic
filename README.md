@@ -40,9 +40,13 @@ For example, lets say you want to add iOS as a platform target for your Ionic ap
 ```
 grunt platform:add:ios
 ```
-or emulate a platform target
+and emulate a platform target
 ```
 grunt emulate:ios
+```
+or add a plugin
+```
+grunt plugin:add:https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 ```
 
 ## Initial Walkthrough
