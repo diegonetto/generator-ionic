@@ -25,18 +25,18 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%%= yeoman.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
         }
       },<% if (compass) { %>
       compass: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%%= yeoman.app %>/styles/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },<% } else { %>
       styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%%= yeoman.app %>/styles/**/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
       gruntfile: {
@@ -47,9 +47,9 @@ module.exports = function (grunt) {
           livereload: '<%%= connect.options.livereload %>'
         },
         files: [
-          '<%%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%%= yeoman.app %>/**/*.html',
+          '.tmp/styles/**/*.css',
+          '<%%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -192,8 +192,8 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on the useminPrepare configuration
     usemin: {
-      html: ['www/{,*/}*.html'],
-      css: ['www/styles/{,*/}*.css'],
+      html: ['www/**/*.html'],
+      css: ['www/styles/**/*.css'],
       options: {
         assetsDirs: ['www']
       }
@@ -217,7 +217,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'www',
-          src: ['*.html', 'templates/{,*/}*.html'],
+          src: ['*.html', 'templates/**/*.html'],
           dest: 'www'
         }]
       }
@@ -234,8 +234,8 @@ module.exports = function (grunt) {
           src: [
             'images/*.{ico,png,txt}',
             '*.html',
-            'templates/{,*/}*.html',
-            'images/{,*/}*.{webp}',
+            'templates/**/*.html',
+            'images/**/*.{webp}',
             'fonts/*'
           ]
         }, {
@@ -293,8 +293,8 @@ module.exports = function (grunt) {
     //   dist: {
     //     files: {
     //       'www/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%%= yeoman.app %>/styles/{,*/}*.css'
+    //         '.tmp/styles/**/*.css',
+    //         '<%%= yeoman.app %>/styles/**/*.css'
     //       ]
     //     }
     //   }
