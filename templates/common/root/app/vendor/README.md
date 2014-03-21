@@ -8,7 +8,7 @@ To make it easy, I added a vendor folder with Grunt support.
 
 ## How does it work
 
-Really simple :) Both JS and CSS files can be added here. The CSS files will be copied to .tmp folder by the copy:vendor Grunt task. There, they will be processed by the autoprefixer task. The JS files are not processed at the moment. The files need to be inserted manually into index.html, I created wrappers.
+Really simple :) Both JS and CSS files can be added here. The CSS files will be copied to .tmp folder by the copy:vendor Grunt task. There, they will be processed by the autoprefixer task. The JS files are not processed at the moment. The files need to be inserted manually into index.html inside the proper `usemin` blocks. This means you have to add them **inside** the build blocks but **outside** the bower blocks.
 
 ## How to disable
 
