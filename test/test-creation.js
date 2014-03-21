@@ -4,8 +4,7 @@
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
 
-
-describe('ionic generator', function () {
+describe('Ionic Framework Generator', function () {
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
             if (err) {
@@ -20,6 +19,7 @@ describe('ionic generator', function () {
     });
 
     it('creates expected files', function (done) {
+        this.timeout(1500);
         var expected = [
             // add files you expect to exist here.
             '.jshintrc',
@@ -30,6 +30,8 @@ describe('ionic generator', function () {
             'someOption': true
         });
         this.app.options['skip-install'] = true;
+        console.log(this.app);
+        this.app.init = function () {};
         this.app.run({}, function () {
             helpers.assertFiles(expected);
             done();
