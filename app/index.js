@@ -30,8 +30,15 @@ util.inherits(IonicGenerator, yeoman.generators.Base);
 
 IonicGenerator.prototype.init = function init() {
   console.log(common.ionic);
-  cordova.create('.', this.appId, this.appName);
-  console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appId + '"'));
+  var done = this.async();
+  cordova.create('.', this.appId, this.appName, function(error) {
+    if (error) {
+      console.log(chalk.yellow(error.message + ': Skipping `cordova create`'));
+    } else {
+      console.log(chalk.yellow('Creating a new cordova project with name "' + this.appName + '" and id "' + this.appId + '"'));
+    }
+    done();
+  }.bind(this));
 };
 
 IonicGenerator.prototype.askForCompass = function askForCompass() {
