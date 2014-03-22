@@ -102,16 +102,11 @@ If you made it this far then congratulations! You're now up and running with the
 * The [AngularJS Generator](https://github.com/yeoman/generator-angular) and [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed) projects for inspiration.
 * The visionaries at [Drifty](http://drifty.com) for creating the [Ionic Framework](http://ionicframework.com/).
 
-## TODO
-1. ~~building / Emulating doc section~~
-2. Better starting app using SideBar and a few other components
-3. ~~Workflow doc section~~
-4. ~~SCSS prompt options~~
-5. ~~Decide if we should use imagemin + svgmin~~
-6. ~~Add testing support using Karma and integrate with Grunt~~
-7. Consider pulling in generator-angular as a subgenerator
-8. Add Mocha generator unit tests
-9. Contributing doc section
+## Contribute
+
+See the [contributing docs](https://github.com/diegonetto/generator-ionic/blob/master/contributing.md).
+
+When submitting a PR, make sure that the commit messages match the [AngularJS conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/).
 
 ## License
 
