@@ -6,7 +6,6 @@ var yeoman = require('yeoman-generator');
 var mout = require('mout').string;
 var cordova = require('cordova');
 var chalk = require('chalk');
-var xml2js = require('xml2js');
 var common = require('../lib/common');  
 
 var IonicGenerator = module.exports = function IonicGenerator(args, options, config) {
@@ -88,28 +87,3 @@ IonicGenerator.prototype.appFiles = function appFiles() {
 IonicGenerator.prototype.testFiles = function testFiles() {
   this.template('javascript/spec/controllers.js', 'test/spec/controllers.js');
 };
-
-// TODO: See if these options that the ionic seed project set config.xml are really needed
-/*IonicGenerator.prototype.updateCordovaConfig = function updateCordovaConfig() {
-  console.log(chalk.yellow('Attemping to overwrite Cordova generated files with example app skeleton.'));
-  console.log(chalk.yellow('Type "y" and hit Enter to confirm overwrites:'));
-  var parser = new xml2js.Parser({ normalize: true });
-  var builder = new xml2js.Builder();
-  var configPath = path.join(this.root, 'config.xml');
-  var done = this.async();
-
-  fs.readFile(configPath, function(err, data) {
-    parser.parseString(data, function(err, config) {
-      config.widget.preference = [
-        { '$': { name: 'fullscreen', value: 'true' } },
-        { '$': { name: 'webviewbounce', value: 'false' } },
-        { '$': { name: 'UIWebViewBounce', value: 'false' } },
-        { '$': { name: 'DisallowOverscroll', value: 'true' } }
-      ];
-      this.write(configPath, builder.buildObject(config));
-      done();
-    }.bind(this));
-  }.bind(this));
-};*/
-
-
