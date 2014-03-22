@@ -30,7 +30,6 @@ describe('Ionic Framework Generator', function () {
             'someOption': true
         });
         this.app.options['skip-install'] = true;
-        console.log(this.app);
         this.app.init = function () {};
         this.app.run({}, function () {
             helpers.assertFiles(expected);
