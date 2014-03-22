@@ -1,8 +1,6 @@
 var chalk = require('chalk');
 
-var common = module.exports;
-
-common.ionic = chalk.cyan(
+module.exports = chalk.cyan(
 "    _             _" +
 "\n   (_)           (_)" +   
 "\n    _  ___  _ __  _  ___" +
