@@ -1,14 +1,13 @@
 'use strict';
 var util = require('util');
-var fs = require('fs');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var mout = require('mout').string;
 var cordova = require('cordova');
 var chalk = require('chalk');
-var common = require('../lib/common');  
+var common = require('../lib/common');
 
-var IonicGenerator = module.exports = function IonicGenerator(args, options, config) {
+var IonicGenerator = module.exports = function IonicGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.argument('appName', { type: String, required: false });
@@ -30,7 +29,7 @@ util.inherits(IonicGenerator, yeoman.generators.Base);
 IonicGenerator.prototype.init = function init() {
   console.log(common.ionic);
   var done = this.async();
-  cordova.create('.', this.appId, this.appName, function(error) {
+  cordova.create('.', this.appId, this.appName, function (error) {
     if (error) {
       console.log(chalk.yellow(error.message + ': Skipping `cordova create`'));
     } else {
@@ -46,9 +45,9 @@ IonicGenerator.prototype.askForCompass = function askForCompass() {
   this.prompt([{
     type: 'confirm',
     name: 'compass',
-    message: "Would you like to use Sass (with Compass)?",
+    message: 'Would you like to use Sass (with Compass)?',
     default: true
-  }], function(props) {
+  }], function (props) {
     this.compass = props.compass;
 
     done();
