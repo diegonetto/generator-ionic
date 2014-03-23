@@ -2,6 +2,7 @@
 'use strict';
 
 var _ = require('lodash');
+var path = require('path');
 var cordova = require('cordova');
 var spawn = require('child_process').spawn;
 
@@ -368,14 +369,15 @@ module.exports = function (grunt) {
         this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
       }
       var done = this.async();
-      var cmd = spawn('./node_modules/cordova/bin/cordova', this.args);
-      cmd.stdout.on('data', function (data) {
+      var cmd = path.resolve('./node_modules/cordova/bin', '<%= process.platform === 'win32' ? 'cordova.cmd' : 'cordova' %>');
+      var child = spawn(cmd, this.args);
+      child.stdout.on('data', function (data) {
         grunt.log.writeln(data);
       });
-      cmd.stderr.on('data', function (data) {
+      child.stderr.on('data', function (data) {
         grunt.log.error(data);
       });
-      cmd.on('close', function (code) {
+      child.on('close', function (code) {
         code = (name === 'cordova:build') ? true : code ? false : true;
         done(code);
       });
