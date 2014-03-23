@@ -24,6 +24,10 @@ module.exports = {
       name: 'org.apache.cordova.battery-status',
       checked: false
     }, {
+      value: 'org.apache.cordova.statusbar',
+      name: 'org.apache.cordova.statusbar',
+      checked: false
+    }, {
       value: 'org.apache.cordova.device-motion',
       name: 'org.apache.cordova.device-motion',
       checked: false
