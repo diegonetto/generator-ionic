@@ -1,5 +1,16 @@
+<a name="0.0.14"></a>
+### 0.0.14 (2014-03-23)
+
+
+#### Bug Fixes
+
+* **gen:**
+  * Add branch logic for spawn'ing cordova child process on Windows. ([ed00c282](http://github.com/diegonetto/generator-ionic/commit/ed00c2820a55f2f45392b849e0181f52fa3397d3), closes [#15](http://github.com/diegonetto/generator-ionic/issues/15))
+  * Only include grunt-contrib-compass if user chooses to use compass ([4a03d83d](http://github.com/diegonetto/generator-ionic/commit/4a03d83dde018b341567dd8fe401ebd77c1fc59a))
+
+
 <a name="0.0.13"></a>
-### 0.0.12 (2014-03-23)
+### 0.0.13 (2014-03-23)
 
 
 #### Bug Fixes
@@ -13,7 +24,7 @@
 
 
 <a name="0.0.12"></a>
-### 0.0.11 (2014-03-22)
+### 0.0.12 (2014-03-22)
 
 
 #### Features
