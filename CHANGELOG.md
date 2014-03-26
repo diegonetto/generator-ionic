@@ -1,3 +1,14 @@
+<a name="0.1.0"></a>
+## 0.1.0 (2014-03-26)
+
+
+#### Features
+
+* **ionic:**
+  * updated seed app to use Ionic Beta release ([3506c822](http://github.com/diegonetto/generator-ionic/commit/3506c82240be7777be0749a7cf533ee507b9f78d))
+  * Updated to use ionic v1.0.0-beta.1 ([7f09bcb8](http://github.com/diegonetto/generator-ionic/commit/7f09bcb846b4a613692eefe60af062af1b7d3dad))
+
+
 <a name="0.0.14"></a>
 ### 0.0.14 (2014-03-23)
 
