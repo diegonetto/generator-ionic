@@ -25,9 +25,9 @@ Spin up a `connect` server with `watch` and `livereload` for developing in your 
 grunt serve
 ```
 ## Upgrading
-Make sure you've commited (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionicjs`, then go ahead and re-run 'yo ionicjs' inside your project's directory.
+Make sure you've commited (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionicjs`, then go ahead and re-run `yo ionicjs` inside your project's directory.
 
-The handsome devil is smart enough to figure out what files he is attempting to overwrite and prompts you to choose how you would like to proceed. Select 'Y' for overwriting your 'Gruntfile.js' and 'bower.json' to stay up-to-date with the latest workflow goodies and front-end packages.
+The handsome devil is smart enough to figure out what files he is attempting to overwrite and prompts you to choose how you would like to proceed. Select `Y` for overwriting your `Gruntfile.js` and `bower.json` to stay up-to-date with the latest workflow goodies and front-end packages.
 
 ## Workflow
 The included Grunt build system provides sensible defaults to help optimize and automate several aspects of your workflow when developing hybrid-mobile apps using the Ionic Framework.
