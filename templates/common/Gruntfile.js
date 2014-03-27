@@ -264,6 +264,12 @@ module.exports = function (grunt) {
         cwd: '<%%= yeoman.app %>/vendor',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      all: {
+        expand: true,
+        cwd: '<%%= yeoman.app %>/',
+        src: '**',
+        dest: 'www/'
       }
     },
     
@@ -382,6 +388,35 @@ module.exports = function (grunt) {
         done(code);
       });
     });
+  });
+
+  // Since Apache Ripple serves assets directly out of their respective platform
+  // directories, we watch all registered files and then copy all un-built assets
+  // over to www/. Last step is running ordova prepare so we can refresh the ripple
+  // browser tab to see the changes.
+  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'prepare', 'ripple-emulator']);
+  grunt.registerTask('ripple-emulator', function () {
+    grunt.config.set('watch', {
+      all: {
+        files: _.flatten(_.pluck(grunt.config.get('watch'), 'files')),
+        tasks: ['copy:all', 'prepare']
+      }
+    });
+
+    var cmd = path.resolve('./node_modules/ripple-emulator/bin', 'ripple');
+    var child = spawn(cmd, ['emulate']);
+    child.stdout.on('data', function (data) {
+      grunt.log.writeln(data);
+    });
+    child.stderr.on('data', function (data) {
+      grunt.log.error(data);
+    });
+    process.on('exit', function (code) {
+      child.kill('SIGINT');
+      process.exit(code);
+    });
+
+    return grunt.task.run(['watch']);
   });
 
   // Dynamically configure `karma` target of `watch` task so that

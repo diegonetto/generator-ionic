@@ -102,6 +102,22 @@ If this is your first time using Istanbul, take a look around. It will help you 
 ## Wrapping it up
 If you made it this far then congratulations! You're now up and running with the gorgeous Ionic Framework powered by an intelligent workflow and sophisticated build system - all facilitated by the addition of just a few commands!
 
+## Ripple Emulator (Experimental)
+**Be Advised**: [Ripple](http://ripple.incubator.apache.org/) is under active development so expect support for some plugins to be missing or broken.
+
+Add a platform target then run `grunt ripple` to launch the emulator in your browser.
+```
+grunt platform:add:ios
+grunt ripple
+```
+
+Now go edit a file and then refresh your browser to see your changes. (Currently experimenting with livereload for Ripple)
+
+**Note**: If you get errors beginning with `Error: static() root path required`, don't fret. Ripple defaults the UI to Android so just switch to an iOS device and you'll be good to go.
+
+![Ripple](http://i.imgur.com/LA4Hip1l.png)
+
+
 ## Special Thanks To
 * The pioneers behind [Yeoman](http://yeoman.io/) for building an intelligent workflow management solution.
 * The [AngularJS Generator](https://github.com/yeoman/generator-angular) and [Ionic Seed Project](https://github.com/driftyco/ionic-angular-cordova-seed) projects for inspiration.
