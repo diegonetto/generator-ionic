@@ -1,9 +1,15 @@
-<a name="0.1.1"></a>
-### 0.1.1 (2014-03-26)
+<a name="0.1.3"></a>
+### 0.1.3 (2014-03-27)
 
 
-<a name="0.1.0"></a>
-## 0.1.0 (2014-03-26)
+#### Bug Fixes
+
+* **grunt:** Fix copy:dist task to properly handle all images. ([b95f4bef](http://github.com/diegonetto/generator-ionic/commit/b95f4befcf5daa09ba19c777faf132add4382d6f))
+
+
+#### Features
+
+* **ripple:** Pulled in Apache Foundation Incubator ripple-emulator ([c30499ea](http://github.com/diegonetto/generator-ionic/commit/c30499ea996f3f3bcfb46ac1474b799e7a7582c5))
 
 
 <a name="0.1.0"></a>
