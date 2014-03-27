@@ -1,3 +1,12 @@
+<a name="0.1.4"></a>
+### 0.1.4 (2014-03-27)
+
+
+#### Features
+
+* **gen:** Default sass to 'N' for now since it has Ruby + Compass depedencies ([00c06328](http://github.com/diegonetto/generator-ionic/commit/00c063285e7726db833f6e64ab1f66f7ee4c5a29))
+
+
 <a name="0.1.3"></a>
 ### 0.1.3 (2014-03-27)
 
