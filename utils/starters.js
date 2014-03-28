@@ -10,11 +10,11 @@ module.exports = {
       user: 'diegonetto',
       repo: 'ionic-starter-tabs'
     },
-/*    {
+    {
       name: 'Side Menu',
       user: 'diegonetto',
       repo: 'ionic-starter-sidemenu'
-    },*/
+    },
     {
       name: 'Pets Seed',
       user: 'diegonetto',
