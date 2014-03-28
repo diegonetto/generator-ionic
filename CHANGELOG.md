@@ -2,6 +2,15 @@
 ### 0.2.2 (2014-03-28)
 
 
+#### Features
+
+* **grunt:** Add grunt cordova command to copy unminified assets into www/ and build cordova  ([3161b9d8](http://github.com/diegonetto/generator-ionic/commit/3161b9d814b6a9e15192f37c64e96f9ccd6477e3))
+
+
+<a name="0.2.2"></a>
+### 0.2.2 (2014-03-28)
+
+
 #### Bug Fixes
 
 * **gen:** Let the generator handle the default icons and splash screens ([38681018](http://github.com/diegonetto/generator-ionic/commit/386810184709c518e3322997b599ee3e65b74881))
