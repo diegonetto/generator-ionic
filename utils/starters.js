@@ -5,12 +5,12 @@ module.exports = {
       user: 'diegonetto',
       repo: 'ionic-starter-blank'
     },
-/*    {
+    {
       name: 'Tabs',
       user: 'diegonetto',
       repo: 'ionic-starter-tabs'
     },
-    {
+/*    {
       name: 'Side Menu',
       user: 'diegonetto',
       repo: 'ionic-starter-sidemenu'
