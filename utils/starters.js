@@ -1,11 +1,11 @@
 module.exports = {
   templates: [
-/*    {
+    {
       name: 'Blank',
       user: 'diegonetto',
       repo: 'ionic-starter-blank'
     },
-    {
+/*    {
       name: 'Tabs',
       user: 'diegonetto',
       repo: 'ionic-starter-tabs'
