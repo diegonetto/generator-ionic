@@ -28,7 +28,8 @@ describe('Ionic Framework Generator', function () {
 
         helpers.mockPrompt(this.app, {
             compass: false,
-            plugins: []
+            plugins: [],
+            starter: 'Blank'
         });
         this.app.options['skip-install'] = true;
         this.app.init = function () {};
