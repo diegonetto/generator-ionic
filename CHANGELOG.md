@@ -1,3 +1,22 @@
+<a name="0.2.2"></a>
+### 0.2.2 (2014-03-28)
+
+
+#### Bug Fixes
+
+* **gen:** Let the generator handle the default icons and splash screens ([38681018](http://github.com/diegonetto/generator-ionic/commit/386810184709c518e3322997b599ee3e65b74881))
+
+
+#### Features
+
+* **grunt:** Make scripts, styles, and images path configurable ([7c1b7646](http://github.com/diegonetto/generator-ionic/commit/7c1b764696694597a7005a89029875d62704a3eb))
+* **templates:**
+  * Add ionic-starter-sidemenu template app ([28a17d53](http://github.com/diegonetto/generator-ionic/commit/28a17d533e2460bfe6f758f453fcd3310baf93fe))
+  * Add ionic-starter-tabs template app. ([12ea6818](http://github.com/diegonetto/generator-ionic/commit/12ea6818af98f14b38bf99d3a25784f06498fbb1))
+  * Add ionic-starter-blank template app. ([0911ad22](http://github.com/diegonetto/generator-ionic/commit/0911ad22a8cc8e733df17e7e8561de20bd404869))
+  * Add support for downloading starter templates ([e668637f](http://github.com/diegonetto/generator-ionic/commit/e668637fee9d7f7ba2f25ab5a3a1dfe4dc91bae9))
+
+
 <a name="0.1.4"></a>
 ### 0.1.4 (2014-03-27)
 
