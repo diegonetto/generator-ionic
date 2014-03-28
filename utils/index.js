@@ -1,4 +1,5 @@
 module.exports = {
   greeting: require('./greeting'),
-  plugins: require('./plugins')
+  plugins: require('./plugins'),
+  starters: require('./starters')
 };

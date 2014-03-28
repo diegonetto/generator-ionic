@@ -2,6 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var _ = require('lodash');
 var mout = require('mout');
 var cordova = require('cordova');
 var chalk = require('chalk');
@@ -64,6 +65,20 @@ IonicGenerator.prototype.askForPlugins = function askForPlugins() {
   }.bind(this));
 };
 
+IonicGenerator.prototype.askForStarter = function askForStarter() {
+  var done = this.async()
+
+  this.prompt([{
+    type: 'list',
+    name: 'starter',
+    message: 'Which starter app template which you like to use?',
+    choices: _.pluck(ionicUtils.starters.templates, 'name')
+  }], function (props) {
+    this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
+    done();
+  }.bind(this));
+};
+
 IonicGenerator.prototype.installPlugins = function installPlugins() {
   console.log(chalk.yellow('\nInstall plugins registered at plugins.cordova.io: ') + chalk.green('grunt plugin:add:org.apache.cordova.globalization'));
   console.log(chalk.yellow('Or install plugins direct from source: ') + chalk.green('grunt plugin:add:https://github.com/apache/cordova-plugin-console.git\n'));
@@ -77,6 +92,19 @@ IonicGenerator.prototype.installPlugins = function installPlugins() {
       done();
     });
   }
+};
+
+IonicGenerator.prototype.installStarter = function installStarter() {
+  console.log(chalk.yellow('Installing starter template. Please wait'));
+  var done = this.async();
+
+  this.remote(this.starter.user, this.starter.repo, 'master', function (error, remote) {
+    if (error) {
+      done(error);
+    }
+    remote.directory('app', 'app');
+    done();
+  }, true);
 };
 
 IonicGenerator.prototype.setupEnv = function setupEnv() {
@@ -101,13 +129,6 @@ IonicGenerator.prototype.packageFiles = function packageFiles() {
   this.template('common/_gitignore', '.gitignore');
 };
 
-IonicGenerator.prototype.appFiles = function appFiles() {
-  this.template('javascript/app.js', 'app/scripts/app.js');
-  this.template('javascript/controllers.js', 'app/scripts/controllers.js');
-  this.template('javascript/services.js', 'app/scripts/services.js');
-  this.template('views/index.html', 'app/index.html');
-};
-
 IonicGenerator.prototype.testFiles = function testFiles() {
-  this.template('javascript/spec/controllers.js', 'test/spec/controllers.js');
+  this.template('spec/controllers.js', 'test/spec/controllers.js');
 };

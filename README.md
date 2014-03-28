@@ -20,7 +20,7 @@ Run `yo ionicjs`
 yo ionicjs
 ```
 
-Spin up a `connect` server with `watch` and `livereload` for developing in your browser
+Follow the prompts to select from some common plugins and pick a starter template, then spin up a `connect` server with `watch` and `livereload` for developing in your browser
 ```
 grunt serve
 ```
@@ -88,6 +88,8 @@ Your generated `Gruntfile.js` also contains a `karma` task that provides further
 Ok, now that you have some context (and links to read up on the bundled testing libraries), go ahead and run `grunt test` and open up one of the included unit tests - `test/spec/controllers.js`. In your editor of choice, change this line - `scope.pets.should.have.length(4);` to any number other than four and watch what happens. Since your test files are being watched for changes, Grunt knows to go ahead and re-run your test suite, which in this cause should have errored out with a failure message being displayed in your terminal.
 
 Undo your modification and ensure that all tests are passing before continuing on.
+
+**Note** Depending on which starter template you picked, your tests may start off failing.
 
 ### End2End Tests
 Coming soon!
