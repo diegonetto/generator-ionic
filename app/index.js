@@ -34,7 +34,7 @@ IonicGenerator.prototype.askForCompass = function askForCompass() {
   this.prompt([{
     type: 'confirm',
     name: 'compass',
-    message: 'Would you like to use Sass (with Compass)?',
+    message: 'Would you like to use Sass with Compass (requires Ruby)?',
     default: false
   }], function (props) {
     this.compass = props.compass;
