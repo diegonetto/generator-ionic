@@ -1,3 +1,13 @@
+<a name="0.2.4"></a>
+### 0.2.4 (2014-03-31)
+
+
+#### Bug Fixes
+
+* **gen:** Handle error when starting generator in a non-empty directory that is not alread ([83269c47](http://github.com/diegonetto/generator-ionic/commit/83269c47de2be10577cdfe1b4b65cb4cb5af2f46), closes [#33](http://github.com/diegonetto/generator-ionic/issues/33))
+* **gitignore:** Follow best practices and ignore cordova platforms and plugins directories. ([083b940e](http://github.com/diegonetto/generator-ionic/commit/083b940e37d632c314352e5348c29ee8213a99a8), closes [#31](http://github.com/diegonetto/generator-ionic/issues/31))
+
+
 <a name="0.2.2"></a>
 ### 0.2.2 (2014-03-28)
 
