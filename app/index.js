@@ -66,7 +66,7 @@ IonicGenerator.prototype.askForPlugins = function askForPlugins() {
 };
 
 IonicGenerator.prototype.askForStarter = function askForStarter() {
-  var done = this.async()
+  var done = this.async();
 
   this.prompt([{
     type: 'list',
@@ -83,14 +83,14 @@ IonicGenerator.prototype.installPlugins = function installPlugins() {
   console.log(chalk.yellow('\nInstall plugins registered at plugins.cordova.io: ') + chalk.green('grunt plugin:add:org.apache.cordova.globalization'));
   console.log(chalk.yellow('Or install plugins direct from source: ') + chalk.green('grunt plugin:add:https://github.com/apache/cordova-plugin-console.git\n'));
   if (this.plugins.length > 0) {
-    var done = this.async();
     console.log(chalk.yellow('Installing selected Cordova plugins, please wait.'));
-    cordova.plugin('add', this.plugins, function (error) {
-      if (error) {
-        console.log(chalk.red(error.message));
-      }
-      done();
-    });
+    // Turns out plugin() doesn't accept a callback so we try/catch instead
+    try {
+      cordova.plugin('add', this.plugins);
+    } catch (e) {
+      this.log.error(chalk.red('Please run `yo ionicjs` in an empty directory, or in that of an already existing cordova project.'));
+      process.exit(1);
+    }
   }
 };
 
