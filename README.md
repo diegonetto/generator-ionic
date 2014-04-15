@@ -4,10 +4,12 @@
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
+**Note**: This was formally packaged under `generator-ionicjs`, but has been republished as `generator-ionic`.
+
 ## Usage
-Install `generator-ionicjs`
+Install `generator-ionic`
 ```
-npm install -g generator-ionicjs
+npm install -g generator-ionic
 ```
 
 Make a new directory, and `cd` into it
@@ -15,9 +17,9 @@ Make a new directory, and `cd` into it
 mkdir my-ionic-project && cd $_
 ```
 
-Run `yo ionicjs`
+Run `yo ionic`
 ```
-yo ionicjs
+yo ionic
 ```
 
 Follow the prompts to select from some common plugins and pick a starter template, then spin up a `connect` server with `watch` and `livereload` for developing in your browser
@@ -25,7 +27,7 @@ Follow the prompts to select from some common plugins and pick a starter templat
 grunt serve
 ```
 ## Upgrading
-Make sure you've commited (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionicjs`, then go ahead and re-run `yo ionicjs` inside your project's directory.
+Make sure you've commited (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionic`, then go ahead and re-run `yo ionic` inside your project's directory.
 
 The handsome devil is smart enough to figure out what files he is attempting to overwrite and prompts you to choose how you would like to proceed. Select `Y` for overwriting your `Gruntfile.js` and `bower.json` to stay up-to-date with the latest workflow goodies and front-end packages.
 
