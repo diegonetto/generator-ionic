@@ -1,3 +1,12 @@
+<a name="0.2.7"></a>
+### 0.2.7 (2014-04-28)
+
+
+#### Features
+
+* **gen:** Update to Ionic beta.2 ([ea287631](http://github.com/diegonetto/generator-ionic/commit/ea287631a0e4bf6b2318091bb4d890b4ec048fe1))
+
+
 <a name="0.2.6"></a>
 ### 0.2.6 (2014-04-16)
 
