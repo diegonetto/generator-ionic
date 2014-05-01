@@ -88,7 +88,8 @@ IonicGenerator.prototype.installPlugins = function installPlugins() {
     try {
       cordova.plugin('add', this.plugins);
     } catch (e) {
-      this.log.error(chalk.red('Please run `yo ionicjs` in an empty directory, or in that of an already existing cordova project.'));
+      console.log(e);
+      this.log.error(chalk.red('Please run `yo ionic` in an empty directory, or in that of an already existing cordova project.'));
       process.exit(1);
     }
   }

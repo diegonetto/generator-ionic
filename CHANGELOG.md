@@ -1,3 +1,12 @@
+<a name="0.2.8"></a>
+### 0.2.8 (2014-04-28)
+
+
+#### Bug Fixes
+
+* **bower:** Use range for bower deps to avoid conflicts ([32699be1](http://github.com/diegonetto/generator-ionic/commit/32699be19c178bad75669cb09a506c89aba3b94d))
+
+
 <a name="0.2.7"></a>
 ### 0.2.7 (2014-04-28)
 
