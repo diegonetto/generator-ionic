@@ -1,3 +1,12 @@
+<a name="0.2.9"></a>
+### 0.2.9 (2014-05-01)
+
+
+#### Features
+
+* **ionic:** Update to Beta 3 ([f1afec66](http://github.com/diegonetto/generator-ionic/commit/f1afec665ca66a548bcaa1d1f7b1889f5eaeb9bc))
+
+
 <a name="0.2.8"></a>
 ### 0.2.8 (2014-04-28)
 
