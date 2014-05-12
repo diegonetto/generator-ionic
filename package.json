@@ -1,6 +1,6 @@
 {
   "name": "generator-ionic",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "A generator for the Ionic Framework",
   "keywords": [
     "yeoman-generator",
