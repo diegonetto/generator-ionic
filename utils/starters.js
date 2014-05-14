@@ -19,6 +19,11 @@ module.exports = {
       name: 'Pets Seed',
       user: 'diegonetto',
       repo: 'ionic-pets-seed'
+    },
+    {
+      name: 'User Tutorial',
+      user: 'diegonetto',
+      repo: 'ionic-user-tutorial'
     }
   ]
 };
