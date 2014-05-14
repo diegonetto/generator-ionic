@@ -1,3 +1,12 @@
+<a name="0.3.0"></a>
+## 0.3.0 (2014-05-13)
+
+
+#### Features
+
+* **gen:** Add User Tutorial starter app ([41a47099](http://github.com/diegonetto/generator-ionic/commit/41a4709923296cd3c51f5358ef416c35fcc3ca74))
+
+
 <a name="0.2.10"></a>
 ### 0.2.10 (2014-05-12)
 
