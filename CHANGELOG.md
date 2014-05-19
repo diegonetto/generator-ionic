@@ -1,3 +1,12 @@
+<a name="0.3.3"></a>
+### 0.3.3 (2014-05-19)
+
+
+#### Bug Fixes
+
+* **ionic:** Upgrade to beta-5b. ([c6bb5853](http://github.com/diegonetto/generator-ionic/commit/c6bb5853bbddd8036d0f36f45893dde1bdcbc4ec), closes [#52](http://github.com/diegonetto/generator-ionic/issues/52))
+
+
 <a name="0.3.1"></a>
 ### 0.3.1 (2014-05-15)
 
@@ -59,18 +68,6 @@
 #### Features
 
 * **gen:** Update to Ionic beta.2 ([ea287631](http://github.com/diegonetto/generator-ionic/commit/ea287631a0e4bf6b2318091bb4d890b4ec048fe1))
-
-
-<a name="0.2.6"></a>
-### 0.2.6 (2014-04-16)
-
-
-<a name="0.2.5"></a>
-### 0.2.5 (2014-04-14)
-
-
-<a name="0.2.4"></a>
-### 0.2.4 (2014-04-13)
 
 
 <a name="0.2.4"></a>
