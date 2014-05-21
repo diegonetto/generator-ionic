@@ -1,3 +1,8 @@
+<a name="0.3.4"></a>
+### 0.3.4 (2014-05-21)
+
+* **gen:** Move icons and screens directories to match Cordova documentation ([5936cfbb](https://github.com/diegonetto/generator-ionic/commit/6f765e9c177b6970fe15fadcd3d54c80131a7ce7))
+
 <a name="0.3.3"></a>
 ### 0.3.3 (2014-05-19)
 
