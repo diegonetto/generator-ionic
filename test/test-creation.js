@@ -19,7 +19,7 @@ describe('Ionic Framework Generator', function () {
     });
 
     it('creates expected files', function (done) {
-        this.timeout(20000);
+        this.timeout(30000);
         var expected = [
             // add files you expect to exist here.
             '.jshintrc',
