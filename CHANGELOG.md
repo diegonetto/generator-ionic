@@ -1,3 +1,12 @@
+<a name="0.3.5"></a>
+### 0.3.5 (2014-05-26)
+
+
+#### Features
+
+* **ionic:** Upgrade to Beta 6 ([5fe97984](http://github.com/diegonetto/generator-ionic/commit/5fe97984acbb5a4f9b215eab7ccecc60eb035640))
+
+
 <a name="0.3.4"></a>
 ### 0.3.4 (2014-05-21)
 
