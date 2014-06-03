@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status](https://api.travis-ci.org/diegonetto/generator-ionic.png?branch=master)](https://travis-ci.org/diegonetto/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+## Ionic Framework generator [![Build Status](https://api.travis-ci.org/diegonetto/generator-ionic.png?branch=master)](https://travis-ci.org/diegonetto/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![NPM version][npm-image]][npm-url]
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
@@ -148,3 +148,6 @@ When submitting a PR, make sure that the commit messages match the [AngularJS co
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+
+[npm-url]:  https://npmjs.org/package/generator-ionic
+[npm-image]: http://img.shields.io/npm/v/generator-ionic.svg?style=flat
