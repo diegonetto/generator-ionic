@@ -1,3 +1,13 @@
+<a name="0.3.6"></a>
+### 0.3.6 (2014-06-16)
+
+
+#### Features
+
+* **bower:** Upgrade Angular version ([93b2b8a8](http://github.com/diegonetto/generator-ionic/commit/93b2b8a829513a3e7cc93786166ad7d5a767891b))
+* **ionic:** Upgrade to Beta 8 ([2c078fa3](http://github.com/diegonetto/generator-ionic/commit/2c078fa3aae47b3c30b48d4f2593814e12f5d213))
+
+
 <a name="0.3.5"></a>
 ### 0.3.5 (2014-05-26)
 
