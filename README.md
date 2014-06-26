@@ -145,6 +145,8 @@ See the [contributing docs](https://github.com/diegonetto/generator-ionic/blob/m
 
 When submitting a PR, make sure that the commit messages match the [AngularJS conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/).
 
+For testing & debugging the generator please refer to the Yeoman Generator [testing documentation](https://github.com/yeoman/generator/wiki/Testing-generators).
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
