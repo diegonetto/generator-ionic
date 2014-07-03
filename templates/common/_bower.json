@@ -2,7 +2,7 @@
   "name": "<%= appName %>",
   "version": "0.0.0",
   "dependencies": {
-    "ionic": "v1.0.0-beta.8"
+    "ionic": "v1.0.0-beta.9"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.17",
