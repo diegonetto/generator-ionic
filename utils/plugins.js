@@ -18,7 +18,7 @@ module.exports = {
     }, {
       value: 'org.apache.cordova.splashscreen',
       name: 'org.apache.cordova.splashscreen',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.battery-status',
       name: 'org.apache.cordova.battery-status',
@@ -26,7 +26,7 @@ module.exports = {
     }, {
       value: 'org.apache.cordova.statusbar',
       name: 'org.apache.cordova.statusbar',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.device-motion',
       name: 'org.apache.cordova.device-motion',
@@ -38,43 +38,43 @@ module.exports = {
     }, {
       value: 'org.apache.cordova.geolocation',
       name: 'org.apache.cordova.geolocation',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.camera',
       name: 'org.apache.cordova.camera',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.media-capture',
       name: 'org.apache.cordova.media-capture',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.media',
       name: 'org.apache.cordova.media',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.file',
       name: 'org.apache.cordova.file',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.file-transfer',
       name: 'org.apache.cordova.file-transfer',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.dialogs',
       name: 'org.apache.cordova.dialogs',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.vibration',
       name: 'org.apache.cordova.vibration',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.contacts',
       name: 'org.apache.cordova.contacts',
-      checked: false
+      checked: true
     }, {
       value: 'org.apache.cordova.inappbrowser',
       name: 'org.apache.cordova.inappbrowser',
-      checked: false
+      checked: true
     }]
   }]
 };

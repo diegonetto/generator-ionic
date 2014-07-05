@@ -2,7 +2,8 @@
   "name": "<%= appName %>",
   "version": "0.0.0",
   "dependencies": {
-    "ionic": "latest"
+    "ionic": "latest",
+    "ngCordova": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.12",
