@@ -1,16 +1,16 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status](https://api.travis-ci.org/diegonetto/generator-ionic.png?branch=master)](https://travis-ci.org/diegonetto/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![NPM version][npm-image]][npm-url]
+## Ionic Framework generator [![Build Status](https://api.travis-ci.org/JaKXz/generator-ionic.png?branch=master)](https://travis-ci.org/JaKXz/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
-**Note**: This was formally packaged under `generator-ionicjs`, but has been republished as `generator-ionic`.
+**Note**: To run my version of the generator, you'll have to uninstall the original version and clone this repository and run `npm link`.
 
 ## Usage
-Install `generator-ionic`
+<!--Install `generator-ionic`
 ```
 npm install -g generator-ionic
-```
+```-->
 
 Make a new directory, and `cd` into it
 ```
@@ -19,7 +19,7 @@ mkdir my-ionic-project && cd $_
 
 Run `yo ionic`
 ```
-yo ionic
+yo ionic [app-name]
 ```
 
 Follow the prompts to select from some common plugins and pick a starter template, then spin up a `connect` server with `watch` and `livereload` for developing in your browser
@@ -148,6 +148,3 @@ When submitting a PR, make sure that the commit messages match the [AngularJS co
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
-
-[npm-url]:  https://npmjs.org/package/generator-ionic
-[npm-image]: http://img.shields.io/npm/v/generator-ionic.svg?style=flat
