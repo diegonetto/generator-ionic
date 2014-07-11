@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status](https://api.travis-ci.org/diegonetto/generator-ionic.png?branch=master)](https://travis-ci.org/diegonetto/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![NPM version][npm-image]][npm-url]
+## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Gittip][gittip-image]][gittip-url]
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
@@ -151,5 +151,9 @@ For testing & debugging the generator please refer to the Yeoman Generator [test
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
+[travis-image]: http://img.shields.io/travis/diegonetto/generator-ionic.svg?style=flat
+[travis-url]: https://travis-ci.org/diegonetto/generator-ionic
 [npm-url]:  https://npmjs.org/package/generator-ionic
 [npm-image]: http://img.shields.io/npm/v/generator-ionic.svg?style=flat
+[gittip-image]: http://img.shields.io/gittip/diegonetto.svg?style=flat
+[gittip-url]: https://www.gittip.com/diegonetto
