@@ -16,14 +16,14 @@ module.exports = {
       repo: 'ionic-starter-sidemenu'
     },
     {
-      name: 'Pets Seed',
-      user: 'diegonetto',
-      repo: 'ionic-pets-seed'
-    },
-    {
       name: 'User Intro',
       user: 'diegonetto',
       repo: 'ionic-user-intro'
+    },
+    {
+      name: 'Pets App',
+      user: 'diegonetto',
+      repo: 'ionic-pets-seed'
     }
   ]
 };
