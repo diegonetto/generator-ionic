@@ -71,7 +71,7 @@ IonicGenerator.prototype.askForStarter = function askForStarter() {
   this.prompt([{
     type: 'list',
     name: 'starter',
-    message: 'Which starter app template which you like to use?',
+    message: 'Which starter template or example app would you like to use?',
     choices: _.pluck(ionicUtils.starters.templates, 'name')
   }], function (props) {
     this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
