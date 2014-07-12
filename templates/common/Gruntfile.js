@@ -122,7 +122,7 @@ module.exports = function (grunt) {
       },
       server: '.tmp'
     },
-    
+
     autoprefixer: {
       options: {
         browsers: ['last 1 version']
@@ -144,7 +144,7 @@ module.exports = function (grunt) {
         ignorePath: '<%%= yeoman.app %>/'
       }
     },
-    
+
     <% if (compass) { %>
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -275,7 +275,7 @@ module.exports = function (grunt) {
         dest: 'www/'
       }
     },
-    
+
     concurrent: {
       server: [<% if (compass) { %>
         'compass:server',<% } %>
@@ -411,9 +411,10 @@ module.exports = function (grunt) {
 
   // Since Apache Ripple serves assets directly out of their respective platform
   // directories, we watch all registered files and then copy all un-built assets
-  // over to www/. Last step is running ordova prepare so we can refresh the ripple
-  // browser tab to see the changes.
-  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'prepare', 'ripple-emulator']);
+  // over to www/. Last step is running cordova prepare so we can refresh the ripple
+  // browser tab to see the changes. Technically ripple runs `cordova prepare` on browser
+  // refreshes, but at this time you would need to re-run the emulator to see changes.
+  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'ripple-emulator']);
   grunt.registerTask('ripple-emulator', function () {
     grunt.config.set('watch', {
       all: {
