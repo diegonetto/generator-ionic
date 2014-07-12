@@ -32,7 +32,7 @@
     "time-grunt": "~0.2.1",
     "cordova": "~3.5.0-0.2.6",
     "lodash": "~2.4.1",
-    "ripple-emulator": "~0.9.20"
+    "ripple-emulator": "~0.9.23"
   },
   "engines": {
     "node": ">=0.10.0"

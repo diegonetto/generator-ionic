@@ -122,7 +122,7 @@ module.exports = function (grunt) {
       },
       server: '.tmp'
     },
-    
+
     autoprefixer: {
       options: {
         browsers: ['last 1 version']
@@ -144,7 +144,7 @@ module.exports = function (grunt) {
         ignorePath: '<%%= yeoman.app %>/'
       }
     },
-    
+
     <% if (compass) { %>
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -275,7 +275,7 @@ module.exports = function (grunt) {
         dest: 'www/'
       }
     },
-    
+
     concurrent: {
       server: [<% if (compass) { %>
         'compass:server',<% } %>
