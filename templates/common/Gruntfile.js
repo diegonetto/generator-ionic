@@ -411,14 +411,13 @@ module.exports = function (grunt) {
 
   // Since Apache Ripple serves assets directly out of their respective platform
   // directories, we watch all registered files and then copy all un-built assets
-  // over to www/. Last step is running ordova prepare so we can refresh the ripple
-  // browser tab to see the changes.
-  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'prepare', 'ripple-emulator']);
+  // over to www/. Ripple will execute 'cordova prepare' on browser refresh.
+  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'ripple-emulator']);
   grunt.registerTask('ripple-emulator', function () {
     grunt.config.set('watch', {
       all: {
         files: _.flatten(_.pluck(grunt.config.get('watch'), 'files')),
-        tasks: ['copy:all', 'prepare']
+        tasks: ['copy:all']
       }
     });
 
