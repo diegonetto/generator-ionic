@@ -71,7 +71,7 @@ IonicGenerator.prototype.askForStarter = function askForStarter() {
   this.prompt([{
     type: 'list',
     name: 'starter',
-    message: 'Which starter template or example app would you like to use?',
+    message: 'Which starter template [T] or example app [A] would you like to use?',
     choices: _.pluck(ionicUtils.starters.templates, 'name')
   }], function (props) {
     this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
@@ -119,7 +119,12 @@ IonicGenerator.prototype.copyStyles = function copyStyles() {
   var sass = this.compass;
   var mainFile = 'main.' + (sass ? 'sass' : 'css');
 
-  this.copy('styles/' + mainFile, 'app/styles/' + mainFile);
+  // Only create a main style file if the starter template didn't
+  // have any styles. In the case it does, the starter should
+  // supply both main.css and main.sass files.
+  if (_.isEmpty(this.expand('app/styles/main.*'))) {
+    this.copy('styles/' + mainFile, 'app/styles/' + mainFile);
+  }
 };
 
 IonicGenerator.prototype.packageFiles = function packageFiles() {

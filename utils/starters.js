@@ -1,27 +1,32 @@
 module.exports = {
   templates: [
     {
-      name: 'Blank',
+      name: '[T] Blank',
       user: 'diegonetto',
       repo: 'ionic-starter-blank'
     },
     {
-      name: 'Tabs',
+      name: '[T] Tabs',
       user: 'diegonetto',
       repo: 'ionic-starter-tabs'
     },
     {
-      name: 'Side Menu',
+      name: '[T] Side Menu',
       user: 'diegonetto',
       repo: 'ionic-starter-sidemenu'
     },
     {
-      name: 'User Intro',
+      name: '[T] Maps',
+      user: 'diegonetto',
+      repo: 'ionic-starter-maps'
+    },
+    {
+      name: '[T] User Intro',
       user: 'diegonetto',
       repo: 'ionic-user-intro'
     },
     {
-      name: 'Pets App',
+      name: '[A] Pets',
       user: 'diegonetto',
       repo: 'ionic-pets-seed'
     }
