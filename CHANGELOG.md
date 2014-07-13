@@ -1,3 +1,16 @@
+<a name="0.3.7"></a>
+### 0.3.7 (2014-07-13)
+
+
+#### Features
+
+* **cordova:** Upgrade to 3.5.0. ([bfbd51bb](http://github.com/diegonetto/generator-ionic/commit/bfbd51bb7eeae07a7a4ed6d35201afc9d45042d6), closes [#70](http://github.com/diegonetto/generator-ionic/issues/70))
+* **gen:** Add Google Maps starter app. ([0d727383](http://github.com/diegonetto/generator-ionic/commit/0d727383706dc6d3505af64915dbae807c538cf9), closes [#69](http://github.com/diegonetto/generator-ionic/issues/69))
+* **generator:** Rename starter app names ([5ab6c8f5](http://github.com/diegonetto/generator-ionic/commit/5ab6c8f5dc4aa46ae4db416c2c72079668dd6354))
+* **ionic:** Upgrade to Beta 9 ([0cdc2925](http://github.com/diegonetto/generator-ionic/commit/0cdc292525977cf899b02ba9b43cabd864606af6))
+* **ripple:** Update to 0.9.23. ([52461124](http://github.com/diegonetto/generator-ionic/commit/52461124e4ec095b7601e5dc990ca147826a9c4e), closes [#62](http://github.com/diegonetto/generator-ionic/issues/62))
+
+
 <a name="0.3.6"></a>
 ### 0.3.6 (2014-06-16)
 
