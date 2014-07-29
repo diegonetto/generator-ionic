@@ -27,8 +27,9 @@ module.exports = function (grunt) {
     },
 
     // Environment Variables for Angular App
-    // This creates an Angular Module that can be injected using via ENV
+    // This creates an Angular Module that can be injected via ENV
     // Add any desired constants to the ENV objects below.
+    // https://github.com/diegonetto/generator-ionic#environment-specific-configuration
     ngconstant: {
       options: {
         space: '  ',
