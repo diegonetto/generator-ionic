@@ -1,3 +1,12 @@
+<a name="0.4.1"></a>
+## 0.4.1 (2014-07-29)
+
+
+#### Features
+
+* **grunt:** Add support for Environment Specific Configuration. ([4aa70621](http://github.com/diegonetto/generator-ionic/commit/4aa70621df3933e23bc496c3356ffb06ab046b53), closes [#40](http://github.com/diegonetto/generator-ionic/issues/40))
+
+
 <a name="0.4.0"></a>
 ## 0.4.0 (2014-07-29)
 
