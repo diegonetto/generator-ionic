@@ -85,11 +85,6 @@
 
 * **gen:** Renamed User Tutorial to User Intro ([4368b85b](http://github.com/diegonetto/generator-ionic/commit/4368b85b323a1c8a7143088459e54caf36bcfba5))
 
-
-<a name="0.3.0"></a>
-## 0.3.0 (2014-05-13)
-
-
 #### Features
 
 * **gen:** Add User Tutorial starter app ([41a47099](http://github.com/diegonetto/generator-ionic/commit/41a4709923296cd3c51f5358ef416c35fcc3ca74))
