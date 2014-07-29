@@ -69,6 +69,63 @@ grunt plugin:add:https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.g
 grunt plugin:add:org.apache.cordova.device
 grunt plugin:add:org.apache.cordova.network-information
 ```
+## Environment Specific Configuration
+While building your Ionic app, you may find yourself working with multiple environments such as development, staging, and production. This generator uses [grunt-ng-constant] (https://github.com/werk85/grunt-ng-constant) to set up your workflow with development and production environment configurations right out of the box. 
+
+### Adding Constants
+To set up your environment specific constants, modify the respective targets of the `ngconstant` task located towards the top of your Gruntfile.
+```
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+        dest: '<%= yeoman.app %>/scripts/config.js'
+      },  
+      development: {
+        constants: {
+          ENV: {
+            name: 'development',
+            apiEndpoint: 'http://localhost:10000/'
+          }   
+        }   
+      },  
+      production: {
+        constants: {
+          ENV: {
+            name: 'production',
+            apiEndpoint: 'http://api.aboatapp.com/'
+          }   
+        }   
+      }   
+    }, 
+```
+
+Running `grunt serve` will cause the `development` target constants to be used. When you build your application for production using `grunt build` or `grunt serve:dist`, the `production` constants will be used. Other targets, such as staging, can be added, but you will need to customize your Gruntfile accordingly.
+
+### Using Inside Angular
+A `config.js` file is created by `grunt-ng-constant` depending on which task target is executed. This config file exposes a `config` module, that is listed as a dependency inside `app/scripts/app.js`. Out of the box, your constants will be namespaced under `ENV`, but this can be changed by modifying the `ngconstant` targets. It is important to note that whatever namespace value is chosen is what will need to be used for Dependency Injection inside your Angular functions.
+
+The following example shows how to pre-process all outgoing HTTP request URLs with an environment specific API endpoint by creating a simple Angular `$http` interceptor.
+
+```
+// Custom Interceptor for replacing outgoing URLs                
+.factory('httpEnvInterceptor', function (ENV) {
+  return {
+    'request': function(config) {
+      if (!_.contains(config.url, 'html')) {
+        config.url = ENV.apiEndpoint + config.url;
+      }
+      return config;
+    }
+  }
+})
+
+.config(function($httpProvider) {
+  // Pre-process outgoing request URLs
+  $httpProvider.interceptors.push('httpEnvInterceptor');
+})
+```
 
 ## Initial Walkthrough
 To help you hit the ground running, let's walk through an example workflow together. We're assuming you've followed the [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
