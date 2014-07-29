@@ -394,7 +394,8 @@ module.exports = function (grunt) {
         this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
       }
       var done = this.async();
-      var cmd = path.resolve('./node_modules/cordova/bin', '<%= process.platform === 'win32' ? 'cordova.cmd' : 'cordova' %>');
+      var exec = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
+      var cmd = path.resolve('./node_modules/cordova/bin', exec);
       var child = spawn(cmd, this.args);
       child.stdout.on('data', function (data) {
         grunt.log.writeln(data);
