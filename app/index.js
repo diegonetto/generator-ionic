@@ -1,5 +1,6 @@
 'use strict';
 var util = require('util');
+var fs = require('fs');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
@@ -104,8 +105,9 @@ IonicGenerator.prototype.installStarter = function installStarter() {
       done(error);
     }
     remote.directory('app', 'app');
+    this.starterCache = path.join(this.cacheRoot(), this.starter.user, this.starter.repo, 'master');
     done();
-  }, true);
+  }.bind(this), true);
 };
 
 IonicGenerator.prototype.setupEnv = function setupEnv() {
@@ -113,6 +115,23 @@ IonicGenerator.prototype.setupEnv = function setupEnv() {
   // directory into your users new application path
   this.sourceRoot(path.join(__dirname, '../templates/'));
   this.directory('common/root', '.', true);
+};
+
+IonicGenerator.prototype.readIndex = function readIndex() {
+  this.indexFile = this.read(path.join(this.starterCache, 'index.html'));
+};
+
+IonicGenerator.prototype.appJs = function appJs() {
+  var scripts = fs.readdirSync(path.join(process.cwd(), 'app/scripts'));
+  scripts = _.map(scripts, function (script) {
+    return 'scripts/' + script;
+  });
+  this.indexFile = this.appendScripts(this.indexFile, 'scripts/scripts.js', scripts);
+};
+
+IonicGenerator.prototype.createIndexHtml = function createIndexHtml() {
+  this.indexFile = this.indexFile.replace(/&apos;/g, "'");
+  this.write(path.join(this.appPath, 'index.html'), this.indexFile);
 };
 
 IonicGenerator.prototype.copyStyles = function copyStyles() {
