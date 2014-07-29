@@ -118,7 +118,7 @@ IonicGenerator.prototype.setupEnv = function setupEnv() {
 };
 
 IonicGenerator.prototype.readIndex = function readIndex() {
-  this.indexFile = this.read(path.join(this.starterCache, 'index.html'));
+  this.indexFile = this.engine(this.read(path.join(this.starterCache, 'index.html')), this);
 };
 
 IonicGenerator.prototype.appJs = function appJs() {
