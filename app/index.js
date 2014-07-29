@@ -122,7 +122,8 @@ IonicGenerator.prototype.readIndex = function readIndex() {
 };
 
 IonicGenerator.prototype.appJs = function appJs() {
-  var scripts = fs.readdirSync(path.join(process.cwd(), 'app/scripts'));
+  var scripts = ['config.js'];
+  scripts = scripts.concat(fs.readdirSync(path.join(process.cwd(), 'app/scripts')));
   scripts = _.map(scripts, function (script) {
     return 'scripts/' + script;
   });
