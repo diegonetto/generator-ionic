@@ -86,7 +86,7 @@ To set up your environment specific constants, modify the respective targets of 
         constants: {
           ENV: {
             name: 'development',
-            apiEndpoint: 'http://localhost:10000/'
+            apiEndpoint: 'http://dev.your-site.com:10000/'
           }   
         }   
       },  
@@ -94,7 +94,7 @@ To set up your environment specific constants, modify the respective targets of 
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://api.aboatapp.com/'
+            apiEndpoint: 'http://api.your-site.com/'
           }   
         }   
       }   
