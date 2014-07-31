@@ -1,3 +1,27 @@
+<a name="0.4.1"></a>
+## 0.4.1 (2014-07-29)
+
+
+#### Features
+
+* **grunt:** Add support for Environment Specific Configuration. ([4aa70621](http://github.com/diegonetto/generator-ionic/commit/4aa70621df3933e23bc496c3356ffb06ab046b53), closes [#40](http://github.com/diegonetto/generator-ionic/issues/40))
+
+
+<a name="0.4.0"></a>
+## 0.4.0 (2014-07-29)
+
+
+#### Bug Fixes
+
+* **generator:** Fix broken template reference in index.html by running it through Yeoman engine ([e445cc56](http://github.com/diegonetto/generator-ionic/commit/e445cc565be2c2d4cb61e64afca38ebc01403c9b))
+
+
+#### Features
+
+* **generator:** Dynamically scaffold index.html file ([ce534bc0](http://github.com/diegonetto/generator-ionic/commit/ce534bc089567a6b80bc4ea35adb5c8b07e714e4))
+* **ionic:** Upgrade to Beta 10 ([2436095e](http://github.com/diegonetto/generator-ionic/commit/2436095e2d7117804febab5a45fc8f6d40e9bb36))
+
+
 <a name="0.3.7"></a>
 ### 0.3.7 (2014-07-13)
 
@@ -60,11 +84,6 @@
 #### Bug Fixes
 
 * **gen:** Renamed User Tutorial to User Intro ([4368b85b](http://github.com/diegonetto/generator-ionic/commit/4368b85b323a1c8a7143088459e54caf36bcfba5))
-
-
-<a name="0.3.0"></a>
-## 0.3.0 (2014-05-13)
-
 
 #### Features
 

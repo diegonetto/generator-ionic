@@ -2,8 +2,11 @@ node_modules
 www
 .tmp
 .sass-cache
-.DS_Store
 <%= appPath %>/bower_components
 coverage
 platforms
 plugins
+*.swp
+*.swo
+*.log
+*.DS_Store

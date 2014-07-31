@@ -26,6 +26,35 @@ module.exports = function (grunt) {
       images: 'images'
     },
 
+    // Environment Variables for Angular App
+    // This creates an Angular Module that can be injected via ENV
+    // Add any desired constants to the ENV objects below.
+    // https://github.com/diegonetto/generator-ionic#environment-specific-configuration
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+        dest: '<%%= yeoman.app %>/scripts/config.js'
+      },
+      development: {
+        constants: {
+          ENV: {
+            name: 'development',
+            apiEndpoint: 'http://dev.yoursite.com:10000/'
+          }
+        }
+      },
+      production: {
+        constants: {
+          ENV: {
+            name: 'production',
+            apiEndpoint: 'http://api.yoursite.com/'
+          }
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
@@ -44,7 +73,8 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
       gruntfile: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js'],
+        tasks: ['ngconstant:development']
       },
       livereload: {
         options: {
@@ -394,7 +424,8 @@ module.exports = function (grunt) {
         this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
       }
       var done = this.async();
-      var cmd = path.resolve('./node_modules/cordova/bin', '<%= process.platform === 'win32' ? 'cordova.cmd' : 'cordova' %>');
+      var exec = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
+      var cmd = path.resolve('./node_modules/cordova/bin', exec);
       var child = spawn(cmd, this.args);
       child.stdout.on('data', function (data) {
         grunt.log.writeln(data);
@@ -457,6 +488,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'bower-install',
       'concurrent:server',
       'autoprefixer',
@@ -475,6 +507,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
