@@ -1,3 +1,18 @@
+<a name="0.5.0"></a>
+## 0.5.0 (2014-08-19)
+
+
+#### Bug Fixes
+
+* **generator:** Fix ENOENT when using fs.chmod() on templated cordova hook ([2ac2b557](http://github.com/diegonetto/generator-ionic/commit/2ac2b5579a561fc51cccf5d79a0c1003a1fe4f9a))
+
+
+#### Features
+
+* **generator:** Scaffold Cordova hook for copying Icons and Splash Screens ([b61120a5](http://github.com/diegonetto/generator-ionic/commit/b61120a58ff5670d7566ef8ca115be4b08913c7d))
+* **ionic:** Upgrade to Beta 11 ([7c39262e](http://github.com/diegonetto/generator-ionic/commit/7c39262ec08322a21ecc186e52d6370f9604e791))
+
+
 <a name="0.4.1"></a>
 ## 0.4.1 (2014-07-29)
 

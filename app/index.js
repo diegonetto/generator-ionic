@@ -155,6 +155,16 @@ IonicGenerator.prototype.packageFiles = function packageFiles() {
   this.template('common/_gitignore', '.gitignore');
 };
 
+IonicGenerator.prototype.cordovaHooks = function cordovaHooks() {
+  var iconsAndSplash = 'hooks/after_prepare/icons_and_splashscreens.js';
+  this.template(iconsAndSplash);
+};
+
+IonicGenerator.prototype.hookPerms = function hookPerms() {
+  var iconsAndSplash = 'hooks/after_prepare/icons_and_splashscreens.js';
+  fs.chmodSync(iconsAndSplash, '755');
+};
+
 IonicGenerator.prototype.testFiles = function testFiles() {
   this.template('spec/controllers.js', 'test/spec/controllers.js');
 };
