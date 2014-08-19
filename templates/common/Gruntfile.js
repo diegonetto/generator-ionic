@@ -57,6 +57,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep']
+      },
       js: {
         files: ['<%%= yeoman.app %>/<%%= yeoman.scripts %>/**/*.js'],
         tasks: ['newer:jshint:all'],
@@ -168,11 +172,18 @@ module.exports = function (grunt) {
     },
 
     // Automatically inject Bower components into the app
-    'bower-install': {
+    wiredep: {
+      options: {
+        cwd: '<%%= yeoman.app %>'
+      },
       app: {
-        html: '<%%= yeoman.app %>/index.html',
-        ignorePath: '<%%= yeoman.app %>/'
-      }
+        src: ['<%%= yeoman.app %>/index.html'],
+        ignorePath:  /\.\.\//
+      }<% if (compass) { %>,
+      sass: {
+        src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
+      }<% } %>
     },
 
     <% if (compass) { %>
@@ -445,7 +456,7 @@ module.exports = function (grunt) {
   // over to www/. Last step is running cordova prepare so we can refresh the ripple
   // browser tab to see the changes. Technically ripple runs `cordova prepare` on browser
   // refreshes, but at this time you would need to re-run the emulator to see changes.
-  grunt.registerTask('ripple', ['bower-install', 'copy:all', 'ripple-emulator']);
+  grunt.registerTask('ripple', ['wiredep', 'copy:all', 'ripple-emulator']);
   grunt.registerTask('ripple-emulator', function () {
     grunt.config.set('watch', {
       all: {
@@ -489,7 +500,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'ngconstant:development',
-      'bower-install',
+      'wiredep',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -508,7 +519,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'ngconstant:production',
-    'bower-install',
+    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
