@@ -1,3 +1,12 @@
+<a name="0.5.2"></a>
+### 0.5.2 (2014-08-19)
+
+
+#### Bug Fixes
+
+* **hook:** Ignore non-directory platforms when processing icons and splashscreens. ([2187deb0](http://github.com/diegonetto/generator-ionic/commit/2187deb0a8cd2e5a8a00132954c815581dcd9390), closes [#87](http://github.com/diegonetto/generator-ionic/issues/87))
+
+
 <a name="0.5.0"></a>
 ## 0.5.0 (2014-08-19)
 
