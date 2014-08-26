@@ -55,7 +55,7 @@ _.each(platforms, function (platform) {
   glob(base + '/**/*.png', function (err, files) {
     _.each(files, function (cordovaFile) {
       var orchestrator = new Orchestrator();
-      var parts = cordovaFile.split(path.sep);
+      var parts = cordovaFile.split('/');
       var fileName = parts.pop();
       var localDir = path.resolve(RESOURCE_DIR, platform, _.last(parts));
       var localFile = path.resolve(localDir, fileName);
