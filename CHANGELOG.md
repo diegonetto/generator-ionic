@@ -1,4 +1,13 @@
 <a name="0.5.2"></a>
+### 0.5.3 (2014-08-26)
+
+
+#### Bug Fixes
+
+* **hook:** Change cordovaFile.split() paramater. ([153cdaed](http://github.com/diegonetto/generator-ionic/commit/153cdaed656cd72bfa1f9b1c97fa32f368b0218c), closes [#89](http://github.com/diegonetto/generator-ionic/issues/89))
+
+
+<a name="0.5.2"></a>
 ### 0.5.2 (2014-08-19)
 
 
