@@ -1,4 +1,13 @@
-<a name="0.5.2"></a>
+<a name="0.5.4"></a>
+### 0.5.4 (2014-09-07)
+
+
+#### Bug Fixes
+
+* **sass:** Ensure CSS or SCSS files are properly created. Change wiredep config. ([b2cb5cf2](http://github.com/diegonetto/generator-ionic/commit/b2cb5cf2279692c98c76bf0fa5510a4459cc381b), closes [#99](http://github.com/diegonetto/generator-ionic/issues/99))
+
+
+<a name="0.5.3"></a>
 ### 0.5.3 (2014-08-26)
 
 
