@@ -163,11 +163,11 @@ npm install -g generator-ionic
 mkdir my-ionic-project && cd $_
 yo ionic
 ```
-- Run web server on your localhost:
+- Execute the following command in Terminal program to run a web server on your localhost. This will automatically open a tab in your default web browser at the following address and load your app http://127.0.0.1:9000/
 ```
 grunt serve
 ```
-- Download the latest [Android SDK](https://developer.android.com/sdk/index.html#download)
+- Now we want to emulate your app on an Android Virtual Device (AVD). Start by downloading the latest [Android SDK](https://developer.android.com/sdk/index.html#download)
 - On a Mac OS, extract downloaded ZIP file to an installation directory (i.e. /Applications/adt-bundle-mac-x86_64-20140702/). Note that the folder should match the name of the downloaded ZIP file adt-bundle-mac-x86_64-20140702.zip
 - Update the Bash Profile document to include PATH environment variables to the Android SDK platform-tools and tools directory so the 'android' command may be executed regardless of your present working directory in the Terminal program. Note: This step may be necessary so you may use the 'android' command and avoid encountering the following error:
 ```
