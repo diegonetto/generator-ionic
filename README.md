@@ -169,21 +169,21 @@ grunt serve
 ```
 - Now we want to emulate your app on an Android Virtual Device (AVD). Start by downloading the latest [Android SDK](https://developer.android.com/sdk/index.html#download)
 - On a Mac OS, extract downloaded ZIP file to an installation directory (i.e. /Applications/adt-bundle-mac-x86_64-20140702/). Note that the folder should match the name of the downloaded ZIP file adt-bundle-mac-x86_64-20140702.zip
-- Update the Bash Profile document to include PATH environment variables to the Android SDK platform-tools and tools directory so the 'android' command may be executed regardless of your present working directory in the Terminal program. Note: This step may be necessary so you may use the 'android' command and avoid encountering the following error:
+- Update the Bash Profile document to include PATH environment variables to the Android SDK platform-tools and tools directory so the 'android' command may be executed regardless of your present working directory in the Terminal program. Note: This step may be necessary in order to allow you to use the 'android' command and avoid encountering the following error:
 ```
 [Error: The command android failed. Make sure you have the latest Android SDK installed, and the android command (inside the tools/ folder) added to your path. Output: /bin/sh: android: command not found ]
 ```
-- Execute the following command in Terminal program to edit your Bash Profile document:
+- Execute the following command in the Terminal program to edit your Bash Profile document:
 ```
 touch ~/.bash_profile; open ~/.bash_profile
 ```
-- Copy and Paste the following at the top of the file (without removing existing data). Replace all instances below of adt-bundle-mac-x86_64-20140702 with the filename of the ZIP file that you downloaded. Save and close the file.
+- Copy and Paste the following at the top of the file (without removing existing data within the file). Replace all instances of adt-bundle-mac-x86_64-20140702 that are shown below with the filename of the ZIP file that you downloaded. Save and close the file.
 ```
 export PATH=/user/local/bin:$PATH
 export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20140702/sdk/tools
 export PATH=${PATH}:/Applications/adt-bundle-mac-x86_64-20140702/sdk/tools:/Applications/adt-bundle-mac-x86_64-20140702/sdk/tools
 ```
-- Execute the updated Bash Profile with the following command in Terminal program to update the PATH:
+- Execute the updated Bash Profile with the following command in the Terminal program to update the PATH:
 ```
 source ~/.bash_profile
 ```
@@ -191,7 +191,7 @@ source ~/.bash_profile
 ```
 brew install ant
 ```
-- Note: This step may be necessary to avoid encountering the following error:
+- Note: The above step may be necessary to avoid encountering the following error:
 ```
 Error: ERROR : executing command 'ant', make sure you have ant installed and added to your path.
 ```
