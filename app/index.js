@@ -135,16 +135,21 @@ IonicGenerator.prototype.createIndexHtml = function createIndexHtml() {
   this.write(path.join(this.appPath, 'index.html'), this.indexFile);
 };
 
-IonicGenerator.prototype.copyStyles = function copyStyles() {
-  var sass = this.compass;
-  var mainFile = 'main.' + (sass ? 'sass' : 'css');
-
+IonicGenerator.prototype.ensureStyles = function ensureStyles() {
   // Only create a main style file if the starter template didn't
   // have any styles. In the case it does, the starter should
-  // supply both main.css and main.sass files.
-  if (_.isEmpty(this.expand('app/styles/main.*'))) {
-    this.copy('styles/' + mainFile, 'app/styles/' + mainFile);
-  }
+  // supply both main.css and main.scss files, one of which
+  // will be deleted
+  var done = this.async();
+  var unusedFile = 'main.' + (this.compass ? 'css' : 'scss');
+  fs.unlink(path.resolve('app/styles', unusedFile), function (err) {
+    if (_.isEmpty(this.expand('app/styles/main.*'))) {
+      var cssFile = 'main.' + (this.compass ? 'scss' : 'css');
+      this.copy('styles/' + cssFile, 'app/styles/' + cssFile);
+    }
+    done();
+  }.bind(this));
+
 };
 
 IonicGenerator.prototype.packageFiles = function packageFiles() {

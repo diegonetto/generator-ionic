@@ -1,6 +1,17 @@
-* When submitting a PR, make sure that the commit messages match the [AngularJS conventions][commit-message-format] (see below).
-* When submitting a bugfix, write a test that exposes the bug and fails before applying your fix. Submit the test alongside the fix.
-* When submitting a new feature, add tests that cover the feature.
+## Issue submission
+
+In order for us to help you please check that you've completed the following steps:
+
+* Made sure you're on the latest version `npm update -g generator-ionic`
+* Used the search feature to ensure that the bug hasn't been reported before
+* Included as much information about the bug as possible, including any output you've received, what OS and version you're on, etc.
+* Shared the output from running the following command in your project root as this can also help track down the issue.
+
+Unix: `yo --version && echo $PATH $NODE_PATH && node -e 'console.log(process.platform, process.versions)'`
+
+Windows: `yo --version && echo %PATH% %NODE_PATH% && node -e "console.log(process.platform, process.versions)"`  
+  
+[Submit your issue](https://github.com/diegonetto/generator-ionic/issues/new)
 
 ## Git Commit Guidelines
 
