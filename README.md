@@ -153,7 +153,8 @@ grunt emulate:ios
 ```
 You may have realized that when the Grunt build process is run, it triggers the Cordova build system as well, so you end up with a beautifully packaged mobile app in a single command.
 
-## Android Walkthrough (Research & Contribution by Luke Schoen @ltfschoen)
+## Android Walkthrough
+Research & Contribution by @ltfschoen (Luke Schoen)
 
 - Install Generator Ionic
 ```
