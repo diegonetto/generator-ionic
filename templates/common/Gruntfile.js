@@ -193,7 +193,7 @@ module.exports = function (grunt) {
         imagesDir: '<%%= yeoman.app %>/img',
         javascriptsDir: '<%%= yeoman.app %>/<%%= yeoman.scripts %>',
         fontsDir: '<%%= yeoman.app %>/<%%= yeoman.styles %>/fonts',
-        importPath: 'bower_components',
+        importPath: './bower_components',
         httpImagesPath: '/img',
         httpGeneratedImagesPath: '/img/generated',
         httpFontsPath: '/<%%= yeoman.styles %>/fonts',
