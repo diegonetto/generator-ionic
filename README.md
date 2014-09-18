@@ -1,8 +1,12 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Gittip][gittip-image]][gittip-url]
+## Ionic Framework (Best Practises) generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Gittip][gittip-image]][gittip-url]
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
+
+I am busy incorporating a fairly commonly extended idea of generating Components or Features as referenced here:
+ https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub
+ 
 
 **Note**: This was formally packaged under `generator-ionicjs`, but has been republished as `generator-ionic`.
 
