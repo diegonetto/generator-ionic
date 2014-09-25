@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status](https://api.travis-ci.org/JaKXz/generator-ionic.png?branch=master)](https://travis-ci.org/JaKXz/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+## Ionic Framework generator [![Build Status](https://api.travis-ci.org/JaKXz/generator-ionic.png?branch=master)](https://travis-ci.org/JaKXz/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Code Climate](https://codeclimate.com/github/JaKXz/generator-ionic/badges/gpa.svg)](https://codeclimate.com/github/JaKXz/generator-ionic)
 
 > Yeoman generator for Ionic - lets you quickly set up a hybrid mobile app project
 
