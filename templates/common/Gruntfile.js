@@ -193,7 +193,7 @@ module.exports = function (grunt) {
         imagesDir: '<%%= yeoman.app %>/img',
         javascriptsDir: '<%%= yeoman.app %>/<%%= yeoman.scripts %>',
         fontsDir: '<%%= yeoman.app %>/<%%= yeoman.styles %>/fonts',
-        importPath: '<%%= yeoman.app %>/bower_components',
+        importPath: './bower_components',
         httpImagesPath: '/img',
         httpGeneratedImagesPath: '/img/generated',
         httpFontsPath: '/<%%= yeoman.styles %>/fonts',
@@ -295,7 +295,7 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/bower_components/ionic/release/fonts/',
+        cwd: 'bower_components/ionic/release/fonts/',
         dest: '<%%= yeoman.app %>/fonts/',
         src: '*'
       },
@@ -367,13 +367,13 @@ module.exports = function (grunt) {
         basePath: '',
         frameworks: ['mocha', 'chai'],
         files: [
-          '<%%= yeoman.app %>/bower_components/angular/angular.js',
-          '<%%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
-          '<%%= yeoman.app %>/bower_components/angular-sanitize/angular-sanitize.js',
-          '<%%= yeoman.app %>/bower_components/angular-ui-router/release/angular-ui-router.js',
-          '<%%= yeoman.app %>/bower_components/ionic/release/js/ionic.js',
-          '<%%= yeoman.app %>/bower_components/ionic/release/js/ionic-angular.js',
-          '<%%= yeoman.app %>/bower_components/angular-mocks/angular-mocks.js',
+          'bower_components/angular/angular.js',
+          'bower_components/angular-animate/angular-animate.js',
+          'bower_components/angular-sanitize/angular-sanitize.js',
+          'bower_components/angular-ui-router/release/angular-ui-router.js',
+          'bower_components/ionic/release/js/ionic.js',
+          'bower_components/ionic/release/js/ionic-angular.js',
+          'bower_components/angular-mocks/angular-mocks.js',
           '<%%= yeoman.app %>/<%%= yeoman.scripts %>/**/*.js',
           'test/mock/**/*.js',
           'test/spec/**/*.js'
