@@ -420,6 +420,10 @@ module.exports = function (grunt) {
       var done = this.async();
       var exec = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
       var cmd = path.resolve('./node_modules/cordova/bin', exec);
+      var release = grunt.option('release');
+      if(release) {
+        this.args.push("--release");
+      }
       var child = spawn(cmd, this.args);
       child.stdout.on('data', function (data) {
         grunt.log.writeln(data);
