@@ -17,9 +17,9 @@ Make a new directory, and `cd` into it
 mkdir my-ionic-project && cd $_
 ```
 
-Run `yo ionic`
+Run `yo ionic`, optionally passing an app name:
 ```
-yo ionic
+yo ionic [app-name]
 ```
 
 Follow the prompts to select from some common plugins and pick a starter template, then spin up a `connect` server with `watch` and `livereload` for developing in your browser
