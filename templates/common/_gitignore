@@ -2,7 +2,7 @@ node_modules
 www
 .tmp
 .sass-cache
-<%= appPath %>/bower_components
+<%= appPath %>/lib
 coverage
 platforms
 plugins
