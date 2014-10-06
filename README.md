@@ -95,7 +95,7 @@ Add a supported Cordova platform as a build target for this project.
 
 Install a native Cordova plugin either by [registry name](http://plugins.cordova.io/) or repository URL.
 
-    $ grunt plugin add:https://github.com/driftyco/ionic-plugins-keyboard.git
+    $ grunt plugin:add:https://github.com/driftyco/ionic-plugins-keyboard.git
     $ grunt plugin:add:org.apache.cordova.device
     $ grunt plugin:add:org.apache.cordova.network-information
 
@@ -105,6 +105,7 @@ Either `emulate` your Ionic app inside a simulator or `run` it on a connected de
 
     $ grunt emulate:ios --livereload
     $ grunt emulate:ios --lc
+    $ grunt emulate:ios --target=iPad -lc
     $ grunt emulate:android --consolelogs
     
     $ grunt run:ios
@@ -116,7 +117,14 @@ Run your Ionic application files located in `app/` through the concatenation, ob
 
 ### `grunt serve:compress`
 
-This runs `grunt compress` to optimize your Ionic app assets and then immediately launches a local development server so that you can preview the compressed application.
+This runs `grunt compress` to optimize your Ionic app assets and then immediately launches a local development server so that you can preview the compressed application in a browser.
+
+### `grunt build:<platform>`
+
+Build your Ionic application for the targeted platform.
+
+    $ grunt build:ios --device --release
+    $ grunt build:android --debug
 
 ### `grunt jshint`
 
