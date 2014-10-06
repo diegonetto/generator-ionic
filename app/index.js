@@ -161,8 +161,7 @@ IonicGenerator.prototype.packageFiles = function packageFiles() {
 };
 
 IonicGenerator.prototype.cordovaHooks = function cordovaHooks() {
-  var iconsAndSplash = 'hooks/after_prepare/icons_and_splashscreens.js';
-  this.template(iconsAndSplash);
+  this.directory('hooks', 'hooks', true);
 };
 
 IonicGenerator.prototype.hookPerms = function hookPerms() {

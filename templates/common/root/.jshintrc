@@ -19,6 +19,8 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "cordova": false,
+    "StatusBar": false
   }
 }
