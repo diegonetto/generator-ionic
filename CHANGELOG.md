@@ -1,3 +1,25 @@
+<a name="0.6.0"></a>
+## 0.6.0 (2014-10-06)
+
+
+#### Bug Fixes
+
+* **generator:**
+  * Fix issue when running emulate/run before serve ([56c40741](http://github.com/diegonetto/generator-ionic/commit/56c40741ac5ae06a2a76da6357e95538b4f6bd36))
+  * Fix JSHint errors. ([d9ed14e6](http://github.com/diegonetto/generator-ionic/commit/d9ed14e65d0b4ca9cf0b70d291e3dd5a41aa9cd9), closes [#113](http://github.com/diegonetto/generator-ionic/issues/113))
+* **package.json:** Remove warnings as mentioned in #99 ([4ef83b34](http://github.com/diegonetto/generator-ionic/commit/4ef83b3408305e7e24db1f49b7246a830dd43099))
+* **plugins:** Add default plugins to be installed by new hooks ([2774b39c](http://github.com/diegonetto/generator-ionic/commit/2774b39c13806c12d15d3836975baaaadc577b55))
+
+
+#### Features
+
+* **generator:**
+  * Add support for Plugin management hooks. ([0498bc1b](http://github.com/diegonetto/generator-ionic/commit/0498bc1bd815339ce4a38ddbaa69fa3c3c5a04de), closes [#72](http://github.com/diegonetto/generator-ionic/issues/72))
+  * Pass CLI flags to cordova wrapper functions. and #107 ([b2821f49](http://github.com/diegonetto/generator-ionic/commit/b2821f49923915f91752df26cd68e3e22320c0eb), closes [#97](http://github.com/diegonetto/generator-ionic/issues/97))
+  * Add ionic-cli support. ([f6f9e0fc](http://github.com/diegonetto/generator-ionic/commit/f6f9e0fcd472ef7bbb6fef3038064e2f0d91b8f8), closes [#112](http://github.com/diegonetto/generator-ionic/issues/112))
+* **ionic:** Update to Beta 13 ([60e1cf4b](http://github.com/diegonetto/generator-ionic/commit/60e1cf4bff2f2d37783d098f5ad9962d04b8e7c4))
+
+
 <a name="0.5.4"></a>
 ### 0.5.4 (2014-09-07)
 
