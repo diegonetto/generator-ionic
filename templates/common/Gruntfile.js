@@ -3,7 +3,7 @@
 
 var _ = require('lodash');
 var path = require('path');
-var cordova = require('cordova');
+var cordovaCli = require('cordova');
 var spawn = require('child_process').spawn;
 
 module.exports = function (grunt) {
@@ -410,7 +410,7 @@ module.exports = function (grunt) {
   });
 
   // Register tasks for all Cordova commands
-  _.functions(cordova).forEach(function (name) {
+  _.functions(cordovaCli).forEach(function (name) {
     grunt.registerTask(name, function () {
       this.args.unshift(name.replace('cordova:', ''));
       // Handle URL's being split up by Grunt because of `:` characters
@@ -494,31 +494,6 @@ module.exports = function (grunt) {
 
     return grunt.task.run(['watch']);
   });
-  grunt.registerTask('serve', function (target) {
-    if (target === 'compress') {
-      return grunt.task.run(['compress', 'ionic:serve']);
-    }
-
-    grunt.task.run([
-      'clean',
-      'ngconstant:development',
-      'wiredep',
-      'concurrent:server',
-      'autoprefixer',
-      'newer:copy:app',
-      'newer:copy:tmp',
-      'ionic:serve'
-    ]);
-  });
-  grunt.registerTask('emulate', function() {
-    return grunt.task.run(['ionic:emulate:' + this.args.join()]);
-  });
-  grunt.registerTask('run', function() {
-    return grunt.task.run(['ionic:run:' + this.args.join()]);
-  });
-  grunt.registerTask('build', function() {
-    return grunt.task.run(['ionic:build:' + this.args.join()]);
-  });
 
   grunt.registerTask('test', [
     'clean',
@@ -527,6 +502,33 @@ module.exports = function (grunt) {
     'karma:unit:start',
     'watch:karma'
   ]);
+  grunt.registerTask('serve', function (target) {
+    if (target === 'compress') {
+      return grunt.task.run(['compress', 'ionic:serve']);
+    }
+
+    grunt.task.run(['init', 'ionic:serve']);
+  });
+  grunt.registerTask('emulate', function() {
+    return grunt.task.run(['init', 'ionic:emulate:' + this.args.join()]);
+  });
+  grunt.registerTask('run', function() {
+    return grunt.task.run(['init', 'ionic:run:' + this.args.join()]);
+  });
+  grunt.registerTask('build', function() {
+    return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
+  });
+
+  grunt.registerTask('init', [
+    'clean',
+    'ngconstant:development',
+    'wiredep',
+    'concurrent:server',
+    'autoprefixer',
+    'newer:copy:app',
+    'newer:copy:tmp'
+  ]);
+
 
   grunt.registerTask('compress', [
     'clean',
