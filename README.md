@@ -15,7 +15,8 @@
 - Sass stylesheets compilation
 - HTML, JavaScript and CSS obfuscation and minification
 - Handles AngularJS dependency injection annotations
-- Icons and Splash screen support
+- Icons and Splashscreens support
+- Cordova plugin management hooks
 - Environment Specific Configuration for AngularJS
 - Linting JavaScript
 - Running unit tests
@@ -141,7 +142,7 @@ Launch the bundled [Ripple](http://ripple.incubator.apache.org/) emulator by fir
 
 ## Documentation
 
-For a Getting Started guide, FAQ, and helpful tips, please see the [documentation](docs/README.md)
+For a Getting Started guide, FAQ, and helpful tips, please see the [documentation](docs/README.md).
 
 ## License
 
