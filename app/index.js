@@ -137,7 +137,7 @@ IonicGenerator.prototype.createIndexHtml = function createIndexHtml() {
 
 IonicGenerator.prototype.copyStyles = function copyStyles() {
   var sass = this.compass;
-  var mainFile = 'main.' + (sass ? 'sass' : 'css');
+  var mainFile = 'main.' + (sass ? 'scss' : 'css');
 
   // Only create a main style file if the starter template didn't
   // have any styles. In the case it does, the starter should
