@@ -40,3 +40,10 @@ Now go edit a file and then refresh your browser to see your changes. (Currently
 
 
 ![Ripple](http://i.imgur.com/LA4Hip1l.png)
+
+##How do I build assets for Cordova?
+Once you're ready to test your application in a simulator or device, run `grunt cordova` to copy all of your `app/` assets into `www/` and build updated `platform/` files so they are ready to be emulated / run by Cordova.
+
+
+
+To compress and optimize your application, run `grunt build`. It will concatenate, obfuscate, and minify your JavaScript, HTML, and CSS files and copy over the resulting assets into the `www/` directory so the compressed version can be used with Cordova.
