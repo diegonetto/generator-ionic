@@ -1,5 +1,9 @@
 #Getting Started
 
+## Workflow
+The included Grunt build system provides sensible defaults to help optimize and automate several aspects of your workflow when developing hybrid-mobile apps using the Ionic Framework.
+
+##Walkthrough
 To help you hit the ground running, let's walk through an example workflow together. We're assuming you've followed the 
 [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
 
