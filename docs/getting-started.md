@@ -1,7 +1,5 @@
 #Getting Started
 
-## Initial Walkthrough
-
 To help you hit the ground running, let's walk through an example workflow together. We're assuming you've followed the 
 [usage](https://github.com/diegonetto/generator-ionic#usage) directions and are inside your app's directory.
 
