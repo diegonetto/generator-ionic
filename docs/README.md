@@ -1,8 +1,9 @@
 # Ionic Generator documentation
 
-## Environment Specific Configuration
-
-While building your Ionic app, you may find yourself working with multiple environments such as development, staging, and production. This generator uses [grunt-ng-constant] (https://github.com/werk85/grunt-ng-constant) to set up your workflow with development and production environment configurations right out of the box. 
+* [Getting Started](https://github.com/DanielSilv/generator-ionic/blob/master/docs/getting-started.md) - Learn the basics
+* [Android Development](https://github.com/DanielSilv/generator-ionic/blob/master/docs/android.md) - In-depth Android Walkthrough
+* [FAQ](https://github.com/DanielSilv/generator-ionic/blob/master/docs/FAQ.md) - Answers to your common questions
+* [App Testing](https://github.com/DanielSilv/generator-ionic/blob/master/docs/app-testing.md) - Learn how to test the app
 
 ## Special Thanks To
 
