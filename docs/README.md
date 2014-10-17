@@ -1,9 +1,9 @@
 # Ionic Generator documentation
 
-* [Getting Started](https://github.com/DanielSilv/generator-ionic/blob/master/docs/getting-started.md) - Learn the basics
-* [Android Development](https://github.com/DanielSilv/generator-ionic/blob/master/docs/android.md) - In-depth Android Walkthrough
-* [FAQ](https://github.com/DanielSilv/generator-ionic/blob/master/docs/FAQ.md) - Answers to your common questions
-* [App Testing](https://github.com/DanielSilv/generator-ionic/blob/master/docs/app-testing.md) - Learn how to test the app
+* [Getting Started](getting-started.md) - Learn the basics
+* [Android Development](android.md) - In-depth Android Walkthrough
+* [FAQ](FAQ.md) - Answers to your common questions
+* [App Testing](app-testing.md) - Learn how to test the app
 
 ## Special Thanks To
 
