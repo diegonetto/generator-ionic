@@ -45,8 +45,8 @@ consolelogs - on serve and emulate
 
 #Android Walkthrough
 
-Check out this [doc](https://github.com/DanielSilv/generator-ionic/blob/master/docs/android.md) if you would like a detailed android walkthrough!
+Check out this [doc](android.md) if you would like a detailed android walkthrough!
 
 #Testing
 
-Now that you've started, why not learn how to [test](https://github.com/DanielSilv/generator-ionic/blob/master/docs/app-testing.md) your app?
+Now that you've started, why not learn how to [test](app-testing.md) your app?
