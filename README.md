@@ -26,6 +26,11 @@
 - Bundled [ripple emulator](http://ripple.incubator.apache.org/)
 
 ## Usage
+Install `yeoman`
+```
+npm install -g yo
+```
+
 Install `generator-ionic`
 ```
 npm install -g generator-ionic
