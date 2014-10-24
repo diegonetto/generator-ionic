@@ -1,3 +1,12 @@
+<a name="0.6.1"></a>
+## 0.6.1 (2014-10-24)
+
+
+#### Bug Fixes
+
+* **ionic:** Run ionic and watch concurrently., #116, & #121 ([1f301bac](http://github.com/diegonetto/generator-ionic/commit/1f301bac24989710b777237763bf9c221ca5b07d), closes [#114](http://github.com/diegonetto/generator-ionic/issues/114))
+
+
 <a name="0.6.0"></a>
 ## 0.6.0 (2014-10-06)
 
