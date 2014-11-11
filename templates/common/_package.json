@@ -47,7 +47,6 @@
   "scripts": {
     "test": "grunt test"
   },
-  "private": true,
   "cordovaPlugins": [
     "https://github.com/driftyco/ionic-plugins-keyboard.git",
     "org.apache.cordova.statusbar",
