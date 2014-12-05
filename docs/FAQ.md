@@ -152,7 +152,7 @@ To set up your environment specific constants, modify the respective targets of 
 
 
 
-Running `grunt serve` will cause the `development` target constants to be used. When you build your application for production using `grunt build` or `grunt serve:dist`, the `production` constants will be used. Other targets, such as staging, can be added, but you will need to customize your Gruntfile accordingly. Note that if you change the `name` property of the task options, you will need to update your `app.js` module dependencies as well.
+Running `grunt serve` will cause the `development` target constants to be used. When you build your application for production using `grunt compress` or `grunt serve:compress`, the `production` constants will be used. Other targets, such as staging, can be added, but you will need to customize your Gruntfile accordingly. Note that if you change the `name` property of the task options, you will need to update your `app.js` module dependencies as well.  If you want to compress and build and use `production` constants, you will need to first run `grunt compress` and then use ionic or cordova commands to build, for example: `ionic build ios`. 
 
 ##How is this used inside Angular?
 A `config.js` file is created by `grunt-ng-constant` depending on which task target is executed. This config file exposes a `config` module, that is listed as a dependency inside `app/scripts/app.js`. Out of the box, your constants will be namespaced under `ENV`, but this can be changed by modifying the `ngconstant` targets. It is important to note that whatever namespace value is chosen is what will need to be used for Dependency Injection inside your Angular functions.
