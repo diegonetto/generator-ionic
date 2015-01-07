@@ -39,7 +39,9 @@
     "mkdirp": "~0.5.0",
     "ncp": "~0.6.0",
     "orchestrator": "~0.3.7",
-    "ripple-emulator": "~0.9.23"
+    "ripple-emulator": "~0.9.23",
+    "elementtree": "0.1.6",
+    "plist": "1.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
