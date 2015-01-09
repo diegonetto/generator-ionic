@@ -303,6 +303,12 @@ module.exports = function (grunt) {
     },
 
     concurrent: {
+      ionic: {
+        tasks: [],
+        options: {
+          logConcurrentOutput: true
+        }
+      },
       server: [<% if (compass) { %>
         'compass:server',<% } %>
         'copy:styles',
@@ -478,21 +484,14 @@ module.exports = function (grunt) {
 
   // Wrap ionic-cli commands
   grunt.registerTask('ionic', function() {
+    var done = this.async();
     var script = path.resolve('./node_modules/ionic/bin/', 'ionic');
     var flags = process.argv.splice(3);
-    var child = spawn(script, this.args.concat(flags));
-    child.stdout.on('data', function (data) {
-      grunt.log.writeln(data);
+    var child = spawn(script, this.args.concat(flags), { stdio: 'inherit' });
+    child.on('close', function (code) {
+      code = code ? false : true;
+      done(code);
     });
-    child.stderr.on('data', function (data) {
-      grunt.log.error(data);
-    });
-    process.on('exit', function (code) {
-      child.kill('SIGINT');
-      process.exit(code);
-    });
-
-    return grunt.task.run(['watch']);
   });
 
   grunt.registerTask('test', [
@@ -502,18 +501,22 @@ module.exports = function (grunt) {
     'karma:unit:start',
     'watch:karma'
   ]);
+
   grunt.registerTask('serve', function (target) {
     if (target === 'compress') {
       return grunt.task.run(['compress', 'ionic:serve']);
     }
 
-    grunt.task.run(['init', 'ionic:serve']);
+    grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
+    grunt.task.run(['init', 'concurrent:ionic']);
   });
   grunt.registerTask('emulate', function() {
-    return grunt.task.run(['init', 'ionic:emulate:' + this.args.join()]);
+    grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(), 'watch']);
+    return grunt.task.run(['init', 'concurrent:ionic']);
   });
   grunt.registerTask('run', function() {
-    return grunt.task.run(['init', 'ionic:run:' + this.args.join()]);
+    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(), 'watch']);
+    return grunt.task.run(['init', 'concurrent:ionic']);
   });
   grunt.registerTask('build', function() {
     return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
