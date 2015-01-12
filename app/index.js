@@ -16,6 +16,10 @@ module.exports = generators.Base.extend({
     this.argument('appName', { type: String, required: false });
     this.option('appName', { type: String, required: false });
     this.option('appId', { type: String, required: false });
+    this.option('compass', { type: Boolean, required: false });
+    this.option('starter', { type: String, required: false });
+    this.option('templates', { type: Array, required: false });
+    this.option('plugins', { type: Object, required: false });
 
   },
 
@@ -27,7 +31,7 @@ module.exports = generators.Base.extend({
         type: 'confirm',
         name: 'compass',
         message: 'Would you like to use Sass with Compass (requires Ruby)?',
-        default: false
+        default: (typeof(this.options.compass) !== 'undefined') ? this.options.compass : false
       }], function (props) {
         this.compass = props.compass;
 
@@ -37,6 +41,10 @@ module.exports = generators.Base.extend({
 
     askForPlugins: function askForPlugins() {
       var done = this.async();
+
+      if (this.options.plugins) {
+        ionicUtils.mergePlugins(this.options.plugins);
+      }
 
       this.prompt(ionicUtils.plugins.prompts, function (props) {
         this.plugins = props.plugins;
@@ -48,11 +56,28 @@ module.exports = generators.Base.extend({
     askForStarter: function askForStarter() {
       var done = this.async();
 
+      if (this.options.templates) {
+        ionicUtils.mergeStarterTemplates(this.options.templates);
+      }
+
+      var defaultIndex = 0;
+      if (this.options.starter) {
+        defaultIndex = _.findIndex(ionicUtils.starters.templates, { name: this.options.starter });
+
+        if (defaultIndex === -1) {
+          defaultIndex = 0;
+          this.log(chalk.bgYellow(chalk.black('WARN')) +
+            chalk.magenta(' Unable to locate the requested default template: ') +
+            this.options.starter);
+        }
+      }
+
       this.prompt([{
         type: 'list',
         name: 'starter',
         message: 'Which starter template [T] or example app [A] would you like to use?',
-        choices: _.pluck(ionicUtils.starters.templates, 'name')
+        choices: _.pluck(ionicUtils.starters.templates, 'name'),
+        default: defaultIndex
       }], function (props) {
         this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
         done();
