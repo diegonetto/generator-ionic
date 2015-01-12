@@ -14,13 +14,9 @@ module.exports = generators.Base.extend({
     console.log(ionicUtils.greeting);
 
     this.argument('appName', { type: String, required: false });
-    this.appName = this.appName || path.basename(process.cwd());
-    this.appName = mout.string.pascalCase(this.appName);
-    this.appId = 'com.example.' + this.appName;
-    this.appPath = 'app';
-    this.root = process.cwd();
+    this.option('appName', { type: String, required: false });
+    this.option('appId', { type: String, required: false });
 
-    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
   },
 
   prompting: {
@@ -66,6 +62,16 @@ module.exports = generators.Base.extend({
   },
 
   configuring: {
+    commonVariables: function() {
+      this.appName = this.appName || this.options.appName || path.basename(process.cwd());
+      this.appName = mout.string.pascalCase(this.appName);
+      this.appId = this.options.appId || 'com.example.' + this.appName;
+      this.appPath = 'app';
+      this.root = process.cwd();
+
+      this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    },
+
     setupEnv: function setupEnv() {
       // Copies the contents of the generator example app
       // directory into your users new application path
