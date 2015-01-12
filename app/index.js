@@ -146,14 +146,24 @@ module.exports = generators.Base.extend({
       console.log(chalk.yellow('Installing starter template. Please wait'));
       var done = this.async();
 
-      this.remote(this.starter.user, this.starter.repo, 'master', function (error, remote) {
+      var callback = function (error, remote) {
         if (error) {
           done(error);
         }
         remote.directory('app', 'app');
-        this.starterCache = path.join(this.cacheRoot(), this.starter.user, this.starter.repo, 'master');
+        this.starterCache = remote.cachePath;
         done();
-      }.bind(this), true);
+      }.bind(this);
+
+      if (this.starter.path) {
+        this.log(chalk.bgYellow(chalk.black('WARN')) +
+          chalk.magenta(' Getting the template from a local path.  This should only be used for developing new templates.'));
+        this.remoteDir(this.starter.path, callback);
+      } else if (this.starter.url) {
+        this.remote(this.starter.url, callback, true);
+      } else {
+        this.remote(this.starter.user, this.starter.repo, 'master', callback, true);
+      }
     },
 
     readIndex: function readIndex() {
