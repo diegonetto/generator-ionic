@@ -20,7 +20,7 @@ module.exports = generators.Base.extend({
     this.option('starter', { type: String, required: false });
     this.option('templates', { type: Array, required: false });
     this.option('plugins', { type: Object, required: false });
-
+    this.options.selected = {};
   },
 
   prompting: {
@@ -33,7 +33,7 @@ module.exports = generators.Base.extend({
         message: 'Would you like to use Sass with Compass (requires Ruby)?',
         default: (typeof(this.options.compass) !== 'undefined') ? this.options.compass : false
       }], function (props) {
-        this.compass = props.compass;
+        this.compass = this.options.selected.compass = props.compass;
 
         done();
       }.bind(this));
@@ -47,7 +47,7 @@ module.exports = generators.Base.extend({
       }
 
       this.prompt(ionicUtils.plugins.prompts, function (props) {
-        this.plugins = props.plugins;
+        this.plugins = this.options.selected.plugins = props.plugins;
 
         done();
       }.bind(this));
@@ -79,7 +79,7 @@ module.exports = generators.Base.extend({
         choices: _.pluck(ionicUtils.starters.templates, 'name'),
         default: defaultIndex
       }], function (props) {
-        this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
+        this.starter = this.options.selected.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
         done();
       }.bind(this));
     }
