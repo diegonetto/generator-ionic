@@ -14,13 +14,13 @@ module.exports = generators.Base.extend({
     console.log(ionicUtils.greeting);
 
     this.argument('appName', { type: String, required: false });
-    this.appName = this.appName || path.basename(process.cwd());
-    this.appName = mout.string.pascalCase(this.appName);
-    this.appId = 'com.example.' + this.appName;
-    this.appPath = 'app';
-    this.root = process.cwd();
-
-    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    this.option('appName', { type: String, required: false });
+    this.option('appId', { type: String, required: false });
+    this.option('compass', { type: Boolean, required: false });
+    this.option('starter', { type: String, required: false });
+    this.option('templates', { type: Array, required: false });
+    this.option('plugins', { type: Object, required: false });
+    this.options.selected = {};
   },
 
   prompting: {
@@ -31,9 +31,9 @@ module.exports = generators.Base.extend({
         type: 'confirm',
         name: 'compass',
         message: 'Would you like to use Sass with Compass (requires Ruby)?',
-        default: false
+        default: (typeof(this.options.compass) !== 'undefined') ? this.options.compass : false
       }], function (props) {
-        this.compass = props.compass;
+        this.compass = this.options.selected.compass = props.compass;
 
         done();
       }.bind(this));
@@ -42,8 +42,12 @@ module.exports = generators.Base.extend({
     askForPlugins: function askForPlugins() {
       var done = this.async();
 
+      if (this.options.plugins) {
+        ionicUtils.mergePlugins(this.options.plugins);
+      }
+
       this.prompt(ionicUtils.plugins.prompts, function (props) {
-        this.plugins = props.plugins;
+        this.plugins = this.options.selected.plugins = props.plugins;
 
         done();
       }.bind(this));
@@ -52,13 +56,30 @@ module.exports = generators.Base.extend({
     askForStarter: function askForStarter() {
       var done = this.async();
 
+      if (this.options.templates) {
+        ionicUtils.mergeStarterTemplates(this.options.templates);
+      }
+
+      var defaultIndex = 0;
+      if (this.options.starter) {
+        defaultIndex = _.findIndex(ionicUtils.starters.templates, { name: this.options.starter });
+
+        if (defaultIndex === -1) {
+          defaultIndex = 0;
+          this.log(chalk.bgYellow(chalk.black('WARN')) +
+            chalk.magenta(' Unable to locate the requested default template: ') +
+            this.options.starter);
+        }
+      }
+
       this.prompt([{
         type: 'list',
         name: 'starter',
         message: 'Which starter template [T] or example app [A] would you like to use?',
-        choices: _.pluck(ionicUtils.starters.templates, 'name')
+        choices: _.pluck(ionicUtils.starters.templates, 'name'),
+        default: defaultIndex
       }], function (props) {
-        this.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
+        this.starter = this.options.selected.starter = _.find(ionicUtils.starters.templates, { name: props.starter });
         done();
       }.bind(this));
     }
@@ -66,6 +87,16 @@ module.exports = generators.Base.extend({
   },
 
   configuring: {
+    commonVariables: function() {
+      this.appName = this.appName || this.options.appName || path.basename(process.cwd());
+      this.appName = mout.string.pascalCase(this.appName);
+      this.appId = this.options.appId || 'com.example.' + this.appName;
+      this.appPath = 'app';
+      this.root = process.cwd();
+
+      this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    },
+
     setupEnv: function setupEnv() {
       // Copies the contents of the generator example app
       // directory into your users new application path
@@ -115,14 +146,24 @@ module.exports = generators.Base.extend({
       console.log(chalk.yellow('Installing starter template. Please wait'));
       var done = this.async();
 
-      this.remote(this.starter.user, this.starter.repo, 'master', function (error, remote) {
+      var callback = function (error, remote) {
         if (error) {
           done(error);
         }
         remote.directory('app', 'app');
-        this.starterCache = path.join(this.cacheRoot(), this.starter.user, this.starter.repo, 'master');
+        this.starterCache = remote.cachePath;
         done();
-      }.bind(this), true);
+      }.bind(this);
+
+      if (this.starter.path) {
+        this.log(chalk.bgYellow(chalk.black('WARN')) +
+          chalk.magenta(' Getting the template from a local path.  This should only be used for developing new templates.'));
+        this.remoteDir(this.starter.path, callback);
+      } else if (this.starter.url) {
+        this.remote(this.starter.url, callback, true);
+      } else {
+        this.remote(this.starter.user, this.starter.repo, 'master', callback, true);
+      }
     },
 
     readIndex: function readIndex() {
