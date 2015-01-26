@@ -110,7 +110,7 @@ To set up your environment specific constants, modify the respective targets of 
 
         name: 'config',
 
-        dest: '<%= yeoman.app %>/scripts/config.js'
+        dest: '<%= yeoman.app %>/<%= yeoman.scripts %>/config.js'
 
       },  
 
