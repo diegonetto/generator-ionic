@@ -23,7 +23,8 @@ module.exports = function (grunt) {
       app: 'app',
       scripts: 'scripts',
       styles: 'styles',
-      images: 'images'
+      images: 'images',
+      dist: 'www'
     },
 
     // Environment Variables for Angular App
@@ -92,7 +93,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          base: 'www'
+          base: '<%%= yeoman.dist %>'
         }
       },
       coverage: {
@@ -129,8 +130,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            'www/*',
-            '!www/.git*'
+            '<%%= yeoman.dist %>/*',
+            '!<%%= yeoman.dist %>/.git*'
           ]
         }]
       },
@@ -183,7 +184,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: 'www/<%%= yeoman.images %>/generated'
+          generatedImagesDir: '<%%= yeoman.dist %>/<%%= yeoman.images %>/generated'
         }
       },
       server: {
@@ -200,7 +201,7 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '<%%= yeoman.app %>/index.html',
       options: {
-        dest: 'www',
+        dest: '<%%= yeoman.dist %>',
         flow: {
           html: {
             steps: {
@@ -215,10 +216,10 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on the useminPrepare configuration
     usemin: {
-      html: ['www/**/*.html'],
-      css: ['www/<%%= yeoman.styles %>/**/*.css'],
+      html: ['<%%= yeoman.dist %>/**/*.html'],
+      css: ['<%%= yeoman.dist %>/<%%= yeoman.styles %>/**/*.css'],
       options: {
-        assetsDirs: ['www']
+        assetsDirs: ['<%%= yeoman.dist %>']
       }
     },
 
@@ -239,9 +240,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'www',
+          cwd: '<%%= yeoman.dist %>',
           src: ['*.html', 'templates/**/*.html'],
-          dest: 'www'
+          dest: '<%%= yeoman.dist %>'
         }]
       }
     },
@@ -253,7 +254,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%%= yeoman.app %>',
-          dest: 'www',
+          dest: '<%%= yeoman.dist %>',
           src: [
             '<%%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '*.html',
@@ -263,7 +264,7 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/<%%= yeoman.images %>',
-          dest: 'www/<%%= yeoman.images %>',
+          dest: '<%%= yeoman.dist %>/<%%= yeoman.images %>',
           src: ['generated/*']
         }]
       },
@@ -288,7 +289,7 @@ module.exports = function (grunt) {
       app: {
         expand: true,
         cwd: '<%%= yeoman.app %>',
-        dest: 'www/',
+        dest: '<%%= yeoman.dist %>/',
         src: [
           '**/*',
           '!**/*.(scss,sass,css)',
@@ -297,7 +298,7 @@ module.exports = function (grunt) {
       tmp: {
         expand: true,
         cwd: '.tmp',
-        dest: 'www/',
+        dest: '<%%= yeoman.dist %>/',
         src: '**/*'
       }
     },
@@ -335,7 +336,7 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       'www/<%%= yeoman.styles %>/main.css': [
+    //       '<%%= yeoman.dist %>/<%%= yeoman.styles %>/main.css': [
     //         '.tmp/<%%= yeoman.styles %>/**/*.css',
     //         '<%%= yeoman.app %>/<%%= yeoman.styles %>/**/*.css'
     //       ]
@@ -345,8 +346,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       'www/<%%= yeoman.scripts %>/scripts.js': [
-    //         'www/<%%= yeoman.scripts %>/scripts.js'
+    //       '<%%= yeoman.dist %>/<%%= yeoman.scripts %>/scripts.js': [
+    //         '<%%= yeoman.dist %>/<%%= yeoman.scripts %>/scripts.js'
     //       ]
     //     }
     //   }
@@ -443,7 +444,7 @@ module.exports = function (grunt) {
 
   // Since Apache Ripple serves assets directly out of their respective platform
   // directories, we watch all registered files and then copy all un-built assets
-  // over to www/. Last step is running cordova prepare so we can refresh the ripple
+  // over to <%%= yeoman.dist %>/. Last step is running cordova prepare so we can refresh the ripple
   // browser tab to see the changes. Technically ripple runs `cordova prepare` on browser
   // refreshes, but at this time you would need to re-run the emulator to see changes.
   grunt.registerTask('ripple', ['wiredep', 'newer:copy:app', 'ripple-emulator']);
@@ -549,9 +550,13 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', ['karma:continuous', 'connect:coverage:keepalive']);
+  grunt.registerTask('coverage', 
+    ['karma:continuous',
+    'connect:coverage:keepalive'
+  ]);
 
   grunt.registerTask('default', [
+    'wiredep',
     'newer:jshint',
     'karma:continuous',
     'compress'
