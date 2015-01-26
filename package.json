@@ -27,25 +27,40 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "yeoman-generator": "~0.17.7",
-    "mout": "~0.10.0",
-    "chalk": "~0.5.1",
-    "cordova": "latest",
-    "yeoman-generator": "~0.18.6",
-    "lodash": "~2.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "chalk": "~0.5.1",
+    "cordova": "^4.2.0",
     "grunt": "~0.4.5",
-    "load-grunt-tasks": "~0.6.0",
-    "marked": "~0.3.2",
-    "mocha": "~1.21.4",
-    "semver": "~4.0.3",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-compass": "~1.0.1",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-htmlmin": "~0.3.0",
+    "grunt-contrib-jshint": "~0.11.0",
+    "grunt-contrib-uglify": "~0.7.0",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-conventional-changelog": "~1.1.0",
-    "grunt-release": "~0.7.0"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
+    "grunt-gulp": "^0.1.0",
+    "grunt-karma": "^0.10.1",
+    "grunt-newer": "^1.1.0",
+    "grunt-release": "~0.10.0",
+    "jshint-stylish": "^1.0.0",
+    "karma": "~0.12.31",
+    "karma-chai": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.7",
+    "karma-coverage": "~0.2.7",
+    "karma-mocha": "~0.1.10",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "load-grunt-tasks": "~3.0.0",
+    "lodash": "~2.4.1",
+    "marked": "~0.3.2",
+    "mocha": "~2.1.0",
+    "mout": "~0.11.0",
+    "semver": "~4.2.0",
+    "time-grunt": "^1.0.0",
+    "yeoman-generator": "^0.18.7"
   },
   "engines": {
     "node": ">=0.8.0",
