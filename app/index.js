@@ -76,7 +76,7 @@ module.exports = generators.Base.extend({
       this.prompt([{
         type: 'list',
         name: 'starter',
-        message: 'Which starter template [T] or example app [A] would you like to use?',
+        message: 'Which starter template would you like to use?',
         choices: _.pluck(ionicUtils.starters.templates, 'name'),
         default: defaultIndex
       }], function (props) {
@@ -160,7 +160,10 @@ module.exports = generators.Base.extend({
         if (error) {
           done(error);
         }
-        remote.directory('app', 'app');
+
+        // Template remote initialization: Copy from remote root folder (.) to working directory (/app)
+        remote.directory('.', 'app');
+ 
         this.starterCache = remote.cachePath;
         done();
       }.bind(this);
@@ -182,9 +185,10 @@ module.exports = generators.Base.extend({
 
     appJs: function appJs() {
       var appPath = path.join(process.cwd(), 'app');
-      var scriptPrefix = 'scripts' + path.sep;
+      var scriptPrefix = 'js' + path.sep;
 
       var scripts = [scriptPrefix + 'config.js'];
+      
       this.fs.store.each(function (file, index) {
         if (file.path.indexOf('.js') !== -1)
         {
@@ -195,12 +199,25 @@ module.exports = generators.Base.extend({
         }
       });
 
-      this.indexFile = this.appendScripts(this.indexFile, 'scripts/scripts.js', scripts);
+      //this.indexFile = this.appendScripts(this.indexFile, 'scripts/scripts.js', scripts);
     },
 
     createIndexHtml: function createIndexHtml() {
-      this.indexFile = this.indexFile.replace(/&apos;/g, "'");
-      this.write(path.join(this.appPath, 'index.html'), this.indexFile);
+     
+        // Regex: CSS
+        this.indexFile = this.indexFile.replace(/lib\/ionic\/css/g,"bower_components\/ionic/release\/css");
+        
+        // Regex: Third party scripts (vendor.js)
+        this.indexFile = this.indexFile.replace(/<script src="lib\/ionic\/js\/ionic.bundle.js"><\/script>/g, "<!-- build:js scripts\/vendor.js -->\n    <!-- bower:js -->\n    <!-- endbower -->\n    <!-- endbuild -->");
+      
+       // Regex: User script (scripts.js)
+       this.indexFile = this.indexFile.replace(/<!-- your app's js -->/g,"<!-- your app's js -->\n    <!-- build:js scripts\/scripts.js -->");
+       this.indexFile = this.indexFile.replace(/<\/head>/g,"  <!-- endbuild -->\n  <\/head>");
+      
+       // Regex for quotemarks
+       this.indexFile = this.indexFile.replace(/&apos;/g, "'");
+      
+       this.write(path.join(this.appPath, 'index.html'), this.indexFile);
     },
 
     ensureStyles: function ensureStyles() {
@@ -211,7 +228,7 @@ module.exports = generators.Base.extend({
       
       var cssFile = 'main.' + (this.compass ? 'scss' : 'css');
       var unusedFile = 'main.' + (this.compass ? 'css' : 'scss');
-      var stylePath = path.join(process.cwd(), 'app', 'styles');
+      var stylePath = path.join(process.cwd(), 'app', 'css');
       var found = false;
 
       this.fs.store.each(function (file, index) {
@@ -228,7 +245,7 @@ module.exports = generators.Base.extend({
       }.bind(this));
 
       if (!found) {
-        this.copy('styles/' + cssFile, 'app/styles/' + cssFile);
+        this.copy('styles/' + cssFile, 'app/css/' + cssFile);
       }
 
     },

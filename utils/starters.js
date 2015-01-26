@@ -2,17 +2,17 @@ module.exports = {
   templates: [
     {
       name: 'Tabs',
-      user: 'diegonetto',
+      user: 'driftyco',
       repo: 'ionic-starter-tabs'
     },
     {
       name: 'Sidemenu',
-      user: 'diegonetto',
+      user: 'driftyco',
       repo: 'ionic-starter-sidemenu'
     },
     {
       name: 'Blank',
-      user: 'diegonetto',
+      user: 'driftyco',
       repo: 'ionic-starter-blank'
     }
   ]
