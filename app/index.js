@@ -1,4 +1,5 @@
 'use strict';
+
 var fs = require('fs');
 var path = require('path');
 var generators = require('yeoman-generator');
@@ -98,6 +99,14 @@ module.exports = generators.Base.extend({
     },
 
     setupEnv: function setupEnv() {
+        // Removes thumbnail cache files
+        var invisibleFiles = ['Thumbs.db', '.DS_Store'];
+        invisibleFiles.forEach(function(filename) {
+            var file = path.join(process.cwd(), filename)
+            if(fs.existsSync(file) ) {
+                fs.unlinkSync(file);
+            }
+       });
       // Copies the contents of the generator example app
       // directory into your users new application path
       this.sourceRoot(path.join(__dirname, '../templates/'));
@@ -131,6 +140,7 @@ module.exports = generators.Base.extend({
       console.log(chalk.yellow('Or install plugins direct from source: ') + chalk.green('grunt plugin:add:https://github.com/apache/cordova-plugin-console.git\n'));
       if (this.plugins.length > 0) {
         console.log(chalk.yellow('Installing selected Cordova plugins, please wait.'));
+        
         // Turns out plugin() doesn't accept a callback so we try/catch instead
         try {
           cordova.plugin('add', this.plugins);
