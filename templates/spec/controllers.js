@@ -1,25 +1,24 @@
 'use strict';
 
-describe('Controller: PetIndexCtrl', function () {
+describe('Controller: TestCtrl', function () {
 
   var should = chai.should();
+  var scope;
+  var TestCtrl;
 
   // load the controller's module
   beforeEach(module('<%= appName %>'));
 
-  var PetIndexCtrl,
-    scope;
-
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PetIndexCtrl = $controller('PetIndexCtrl', {
+    TestCtrl = $controller('TestCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of pets to the scope', function () {
-    scope.pets.should.have.length(4);
+  it('Should attach a list of things to the scope', function () {
+    scope.things.should.have.length(4);
   });
 
 });
