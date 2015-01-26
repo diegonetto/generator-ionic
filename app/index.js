@@ -168,7 +168,7 @@ module.exports = generators.Base.extend({
         done();
       }.bind(this);
 
-      if (this.starter.path) {
+      if (this.starter && this.starter.path) {
         this.log(chalk.bgYellow(chalk.black('WARN')) +
           chalk.magenta(' Getting the template from a local path.  This should only be used for developing new templates.'));
         this.remoteDir(this.starter.path, callback);

@@ -28,10 +28,9 @@ describe('Ionic Framework Generator', function () {
 
         helpers.mockPrompt(this.app, {
             compass: false,
-            plugins: [],
-            starter: '[T] Blank'
+            plugins: ['com.ionic.keyboard'],
+            starter: 'Tabs'
         });
-        this.app.options['skip-install'] = true;
         this.app.init = function () {};
         this.app.run({}, function () {
             helpers.assertFiles(expected);
