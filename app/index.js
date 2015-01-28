@@ -187,7 +187,7 @@ module.exports = generators.Base.extend({
       var appPath = path.join(process.cwd(), 'app');
       var scriptPrefix = 'js' + path.sep;
 
-      var scripts = [scriptPrefix + 'config.js'];
+      var scripts = [scriptPrefix + 'configuration.js'];
       
       this.fs.store.each(function (file, index) {
         if (file.path.indexOf('.js') !== -1)
