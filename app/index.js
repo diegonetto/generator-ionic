@@ -9,6 +9,8 @@ var cordova = require('cordova');
 var chalk = require('chalk');
 var ionicUtils = require('../utils');
 
+var appPath = path.join(process.cwd(), 'app');
+
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
@@ -184,7 +186,7 @@ module.exports = generators.Base.extend({
     },
 
     appJs: function appJs() {
-      var appPath = path.join(process.cwd(), 'app');
+     
       var scriptPrefix = 'js' + path.sep;
 
       var scripts = [scriptPrefix + 'configuration.js'];
@@ -203,20 +205,28 @@ module.exports = generators.Base.extend({
     },
 
     createIndexHtml: function createIndexHtml() {
-     
-        // Regex: CSS
-        this.indexFile = this.indexFile.replace(/lib\/ionic\/css/g,"bower_components\/ionic/release\/css");
+             
+        // Regex: Vendor CSS
+        this.indexFile = this.indexFile.replace(/<link href="lib\/ionic\/css\/ionic.css" rel="stylesheet">/g, "<!-- build:css styles\/vendor.css -->\n    <!-- bower:css -->\n    <!-- endbower -->\n    <!-- endbuild -->");
         
-        // Regex: Third party scripts (vendor.js)
+        // Regex: User CSS
+        //this.indexFile = this.indexFile.replace(/<link href="css\/style.css" rel="stylesheet">/g, "<!-- build:css styles\/vendor.css -->\n    <!-- bower:css -->\n    <!-- endbower -->\n    <!-- endbuild -->");
+        
+        // Regex: Vendor scripts (vendor.js)
         this.indexFile = this.indexFile.replace(/<script src="lib\/ionic\/js\/ionic.bundle.js"><\/script>/g, "<!-- build:js scripts\/vendor.js -->\n    <!-- bower:js -->\n    <!-- endbower -->\n    <!-- endbuild -->");
       
-       // Regex: User script (scripts.js)
+       // Regex: User scripts (scripts.js)
        this.indexFile = this.indexFile.replace(/<!-- your app's js -->/g,"<!-- your app's js -->\n    <!-- build:js scripts\/scripts.js -->");
-       this.indexFile = this.indexFile.replace(/<\/head>/g,"  <!-- endbuild -->\n  <\/head>");
-      
-       // Regex for quotemarks
+       this.indexFile = this.indexFile.replace(/<\/head>/g,"  <script src=\"scripts\/configuration.js\"><\/script>\n  <!-- endbuild -->\n  <\/head>");
+       
+       // Regex/Rename: Scripts path (Ionics 'js' to 'scripts')
+       this.indexFile = this.indexFile.replace(/href="css/g,"href=\"styles");
+       
+       // Regex/Rename: CSS path (Ionics 'css' to 'styles')
+       this.indexFile = this.indexFile.replace(/src="js/g,"src=\"scripts");
+     
+       // Write index.html
        this.indexFile = this.indexFile.replace(/&apos;/g, "'");
-      
        this.write(path.join(this.appPath, 'index.html'), this.indexFile);
     },
 
@@ -269,6 +279,23 @@ module.exports = generators.Base.extend({
       var iconsAndSplash = 'hooks/after_prepare/icons_and_splashscreens.js';
       fs.chmodSync(iconsAndSplash, '755');
     },
+    folderNames: function folderNames() {
+      // Rename: Scripts path (Ionics 'js' to 'scripts')
+      fs.rename(path.join(appPath, 'css'), path.join(appPath, 'styles'), function(err) {
+          if ( err ) console.log('ERROR: ' + err);
+      });
+      
+      // Rename: CSS path (Ionics 'css' to 'styles')
+      fs.rename(path.join(appPath, 'js'), path.join(appPath, 'scripts'), function(err) {
+          if ( err ) console.log('ERROR: ' + err);
+      });
+      
+      // Rename: Images path (Ionics 'img' to 'images')
+      fs.rename(path.join(appPath, 'img'), path.join(appPath, 'images'), function(err) {
+          if ( err ) console.log('ERROR: ' + err);
+      });
+    },
+    
   }
 });
 
