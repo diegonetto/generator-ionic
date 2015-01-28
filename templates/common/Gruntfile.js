@@ -24,6 +24,8 @@ module.exports = function (grunt) {
       scripts: 'scripts',
       styles: 'styles',
       images: 'images',
+      test: 'test',
+      temp: '.temp',
       dist: 'www'
     },
 
@@ -129,13 +131,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
+            '<%%= yeoman.temp %>',
             '<%%= yeoman.dist %>/*',
             '!<%%= yeoman.dist %>/.git*'
           ]
         }]
       },
-      server: '.tmp'
+      server: '<%%= yeoman.temp %>'
     },
 
     autoprefixer: {
@@ -145,9 +147,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/<%%= yeoman.styles %>/',
+          cwd: '<%%= yeoman.temp %>/<%%= yeoman.styles %>/',
           src: '{,*/}*.css',
-          dest: '.tmp/<%%= yeoman.styles %>/'
+          dest: '<%%= yeoman.temp %>/<%%= yeoman.styles %>/'
         }]
       }
     },
@@ -169,8 +171,8 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: '<%%= yeoman.app %>/<%%= yeoman.styles %>',
-        cssDir: '.tmp/<%%= yeoman.styles %>',
-        generatedImagesDir: '.tmp/<%%= yeoman.images %>/generated',
+        cssDir: '<%%= yeoman.temp %>/<%%= yeoman.styles %>',
+        generatedImagesDir: '<%%= yeoman.temp %>/<%%= yeoman.images %>/generated',
         imagesDir: '<%%= yeoman.app %>/<%%= yeoman.images %>',
         javascriptsDir: '<%%= yeoman.app %>/<%%= yeoman.scripts %>',
         fontsDir: '<%%= yeoman.app %>/<%%= yeoman.styles %>/fonts',
@@ -263,7 +265,7 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '.tmp/<%%= yeoman.images %>',
+          cwd: '<%%= yeoman.temp %>/<%%= yeoman.images %>',
           dest: '<%%= yeoman.dist %>/<%%= yeoman.images %>',
           src: ['generated/*']
         }]
@@ -271,7 +273,7 @@ module.exports = function (grunt) {
       styles: {
         expand: true,
         cwd: '<%%= yeoman.app %>/<%%= yeoman.styles %>',
-        dest: '.tmp/<%%= yeoman.styles %>/',
+        dest: '<%%= yeoman.temp %>/<%%= yeoman.styles %>/',
         src: '{,*/}*.css'
       },
       fonts: {
@@ -283,7 +285,7 @@ module.exports = function (grunt) {
       vendor: {
         expand: true,
         cwd: '<%%= yeoman.app %>/vendor',
-        dest: '.tmp/<%%= yeoman.styles %>/',
+        dest: '<%%= yeoman.temp %>/<%%= yeoman.styles %>/',
         src: '{,*/}*.css'
       },
       app: {
@@ -297,7 +299,7 @@ module.exports = function (grunt) {
       },
       tmp: {
         expand: true,
-        cwd: '.tmp',
+        cwd: '<%%= yeoman.temp %>',
         dest: '<%%= yeoman.dist %>/',
         src: '**/*'
       }
@@ -337,7 +339,7 @@ module.exports = function (grunt) {
     //   dist: {
     //     files: {
     //       '<%%= yeoman.dist %>/<%%= yeoman.styles %>/main.css': [
-    //         '.tmp/<%%= yeoman.styles %>/**/*.css',
+    //         '<%%= yeoman.temp %>/<%%= yeoman.styles %>/**/*.css',
     //         '<%%= yeoman.app %>/<%%= yeoman.styles %>/**/*.css'
     //       ]
     //     }
@@ -380,7 +382,7 @@ module.exports = function (grunt) {
         singleRun: false,
         preprocessors: {
           // Update this if you change the yeoman config path
-          'app/scripts/**/*.js': ['coverage']
+          '<%%= yeoman.app %>/<%%= yeoman.scripts %>/**/*.js': ['coverage']
         },
         coverageReporter: {
           reporters: [
@@ -407,9 +409,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/<%%= yeoman.scripts %>',
+          cwd: '<%%= yeoman.temp %>/concat/<%%= yeoman.scripts %>',
           src: '*.js',
-          dest: '.tmp/concat/<%%= yeoman.scripts %>'
+          dest: '<%%= yeoman.temp %>/concat/<%%= yeoman.scripts %>'
         }]
       }
     }
@@ -476,7 +478,7 @@ module.exports = function (grunt) {
   // we don't have to run the karma test server as part of `grunt serve`
   grunt.registerTask('watch:karma', function () {
     var karma = {
-      files: ['<%%= yeoman.app %>/<%%= yeoman.scripts %>/**/*.js', 'test/spec/**/*.js'],
+      files: ['<%%= yeoman.app %>/<%%= yeoman.scripts %>/**/*.js', '<%%= yeoman.test %>/spec/**/*.js'],
       tasks: ['newer:jshint:test', 'karma:unit:run']
     };
     grunt.config.set('watch', karma);
