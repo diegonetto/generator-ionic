@@ -217,7 +217,7 @@ module.exports = generators.Base.extend({
       
        // Regex: User scripts (scripts.js)
        this.indexFile = this.indexFile.replace(/<!-- your app's js -->/g,"<!-- your app's js -->\n    <!-- build:js scripts\/scripts.js -->");
-       this.indexFile = this.indexFile.replace(/<\/head>/g,"  <script src=\"scripts\/configuration.js\"><\/script>\n  <!-- endbuild -->\n  <\/head>");
+       this.indexFile = this.indexFile.replace(/<\/head>/g,"  <script src=\"scripts\/configuration.js\"><\/script>\n    <!-- endbuild -->\n  <\/head>");
        
        // Regex/Rename: Scripts path (Ionics 'js' to 'scripts')
        this.indexFile = this.indexFile.replace(/href="css/g,"href=\"styles");
