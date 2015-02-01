@@ -204,6 +204,7 @@ module.exports = function (grunt) {
       html: '<%%= yeoman.app %>/index.html',
       options: {
         dest: '<%%= yeoman.dist %>',
+        staging: '<%%= yeoman.temp %>',
         flow: {
           html: {
             steps: {
@@ -228,7 +229,7 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%%= yeoman.app %>',
+        //root: '<%= yeoman.app %>',
         noRebase: true
       }
     },
