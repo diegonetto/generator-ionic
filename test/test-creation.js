@@ -5,6 +5,7 @@ var path    = require('path');
 var helpers = require('yeoman-generator').test;
 
 describe('Ionic Framework Generator', function () {
+    this.timeout(30000);
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
             if (err) {
@@ -19,7 +20,6 @@ describe('Ionic Framework Generator', function () {
     });
 
     it('creates expected files', function (done) {
-        this.timeout(30000);
         var expected = [
             // add files you expect to exist here.
             '.jshintrc',
