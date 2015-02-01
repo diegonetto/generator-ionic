@@ -31,7 +31,6 @@ module.exports = function (grunt) {
       styles: 'styles',
       images: 'images',
       test: 'test',
-      temp: '.temp',
       dist: 'www'
     },
 
@@ -87,7 +86,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/*.html',
           '<%= yeoman.app %>/templates/**/*.html',
-          '<%= yeoman.temp %>/<%= yeoman.styles %>/**/*.css',
+          '.temp/<%= yeoman.styles %>/**/*.css',
           '<%= yeoman.app %>/<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -112,7 +111,7 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '<%= yeoman.temp %>',
+            '.temp',
             '<%= yeoman.app %>'
           ]
         }
@@ -155,13 +154,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '<%= yeoman.temp %>',
+            '.temp',
             '<%= yeoman.dist %>/*',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
       },
-      server: '<%= yeoman.temp %>'
+      server: '.temp'
     },
 
     autoprefixer: {
@@ -171,9 +170,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.temp %>/<%= yeoman.styles %>/',
+          cwd: '.temp/<%= yeoman.styles %>/',
           src: '{,*/}*.css',
-          dest: '<%= yeoman.temp %>/<%= yeoman.styles %>/'
+          dest: '.temp/<%= yeoman.styles %>/'
         }]
       }
     },
@@ -191,8 +190,8 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/<%= yeoman.styles %>',
-        cssDir: '<%= yeoman.temp %>/<%= yeoman.styles %>',
-        generatedImagesDir: '<%= yeoman.temp %>/<%= yeoman.images %>/generated',
+        cssDir: '.temp/<%= yeoman.styles %>',
+        generatedImagesDir: '.temp/<%= yeoman.images %>/generated',
         imagesDir: '<%= yeoman.app %>/<%= yeoman.images %>',
         javascriptsDir: '<%= yeoman.app %>/<%= yeoman.scripts %>',
         fontsDir: '<%= yeoman.app %>/<%= yeoman.styles %>/fonts',
@@ -224,6 +223,7 @@ module.exports = function (grunt) {
       html: '<%= yeoman.app %>/index.html',
       options: {
         dest: '<%= yeoman.dist %>',
+        staging: '.temp',
         flow: {
           html: {
             steps: {
@@ -248,7 +248,7 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%= yeoman.app %>',
+        //root: '<%= yeoman.app %>',
         noRebase: true
       }
     },
@@ -286,7 +286,7 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '<%= yeoman.temp %>/<%= yeoman.images %>',
+          cwd: '.temp/<%= yeoman.images %>',
           dest: '<%= yeoman.dist %>/<%= yeoman.images %>',
           src: ['generated/*']
         }]
@@ -294,7 +294,7 @@ module.exports = function (grunt) {
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/<%= yeoman.styles %>',
-        dest: '<%= yeoman.temp %>/<%= yeoman.styles %>/',
+        dest: '.temp/<%= yeoman.styles %>/',
         src: '{,*/}*.css'
       },
       fonts: {
@@ -306,7 +306,7 @@ module.exports = function (grunt) {
       vendor: {
         expand: true,
         cwd: '<%= yeoman.app %>/vendor',
-        dest: '<%= yeoman.temp %>/<%= yeoman.styles %>/',
+        dest: '.temp/<%= yeoman.styles %>/',
         src: '{,*/}*.css'
       },
       all: {
@@ -345,7 +345,7 @@ module.exports = function (grunt) {
     //   dist: {
     //     files: {
     //       '<%= yeoman.dist %>/<%= yeoman.styles %>/main.css': [
-    //         '<%= yeoman.temp %>/<%= yeoman.styles %>/**/*.css',
+    //         '.temp/<%= yeoman.styles %>/**/*.css',
     //         '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
     //       ]
     //     }
@@ -415,7 +415,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.temp %>/concat/<%= yeoman.scripts %>',
+          cwd: '.temp/concat/<%= yeoman.scripts %>',
           src: '*.js',
           dest: '<%= yeoman.dist %>/concat/<%= yeoman.scripts %>'
         }]
