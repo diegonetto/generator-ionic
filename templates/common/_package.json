@@ -41,7 +41,8 @@
     "orchestrator": "~0.3.7",
     "ripple-emulator": "~0.9.24",
     "elementtree": "0.1.6",
-    "plist": "1.1.0"
+    "plist": "1.1.0",
+    "yo": "^1.4.5"
   },
   "engines": {
     "node": ">=0.10.0"
