@@ -25,7 +25,7 @@
     "url": "git://github.com/diegonetto/generator-ionic.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 5000"
   },
   "dependencies": {
     "chalk": "^0.5.1",

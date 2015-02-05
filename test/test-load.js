@@ -1,11 +1,10 @@
-/*global describe, beforeEach, it*/
+/*global describe, it, beforeEach */
 'use strict';
 
-var assert = require('assert');
+var assert = require('yeoman-generator').assert;
 
-describe('ionic generator', function () {
+describe('Ionic Generator load test', function () {
     it('can be imported without blowing up', function () {
-        var app = require('../app');
-        assert(app !== undefined);
+      assert(require('../app') !== undefined);
     });
 });

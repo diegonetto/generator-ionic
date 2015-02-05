@@ -289,8 +289,7 @@ module.exports = generators.Base.extend({
       fs.rename(path.join(appPath, 'img'), path.join(appPath, 'images'), function(err) {
           if ( err ) console.log('ERROR: ' + err);
       });
-    },
-    
+    }
   }
 });
 
