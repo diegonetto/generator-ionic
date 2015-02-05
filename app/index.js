@@ -119,7 +119,7 @@ module.exports = generators.Base.extend({
       this.template('common/_bower.json', 'bower.json');
       this.template('common/_bowerrc', '.bowerrc');
       this.template('common/_package.json', 'package.json');
-      this.template('common/Gruntfile.js', 'Gruntfile.js');
+      this.copy('common/_Gruntfile.js', 'Gruntfile.js');
       this.template('common/_gitignore', '.gitignore');
     }
   },
@@ -262,11 +262,6 @@ module.exports = generators.Base.extend({
 
     cordovaHooks: function cordovaHooks() {
       this.directory('hooks', 'hooks', true);
-    },
-
-
-    testFiles: function testFiles() {
-      this.template('spec/controllers.js', 'test/spec/controllers.js');
     },
 
     packages: function () {
