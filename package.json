@@ -25,29 +25,27 @@
     "url": "git://github.com/diegonetto/generator-ionic.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 5000"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0",
-    "mout": "~0.9.0",
-    "chalk": "~0.4.0",
-    "cordova": "~3.4.0-0.1.2",
-    "lodash": "~2.4.1"
+    "chalk": "^0.5.1",
+    "cordova": "^4.2.0",
+    "lodash": "^3.1.0",
+    "mout": "^0.11.0",
+    "npm-name": "^1.0.3",
+    "superb": "^1.1.2",
+    "yeoman-generator": "^0.18.7",
+    "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "load-grunt-tasks": "~0.4.0",
-    "marked": "~0.3.1",
-    "mocha": "~1.14.0",
-    "semver": "~2.2.1",
-    "grunt-conventional-changelog": "~1.1.0",
-    "grunt-release": "~0.7.0"
+    "mocha": "^2.1.0",
+    "mockery": "^1.4.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
   },
   "engines": {
-    "node": ">=0.8.0",
+    "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
   "licenses": [
