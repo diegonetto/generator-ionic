@@ -1,8 +1,4 @@
-<p align="center">
-  <a href="http://blacklitelabs.com/">
-    <img width="341" height="308" src="http://i.imgur.com/BGrt2QK.png"/>
-  </a>
-</p>
+![](http://i.imgur.com/BGrt2QK.png)
 
 ## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
 
@@ -26,10 +22,10 @@
 - Bundled [ripple emulator](http://ripple.incubator.apache.org/)
 
 ## Usage
-Install `generator-ionic`
+<!--Install `generator-ionic`
 ```
 npm install -g generator-ionic
-```
+```-->
 
 Make a new directory, and `cd` into it
 ```
@@ -44,7 +40,7 @@ yo ionic [app-name]
 Run `grunt` for building / compressing your Ionic app, `grunt serve` for a browser preview, and `grunt serve:compress` for a preview of the optimized application.
 
 ## Upgrading
-Make sure you've commited (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionic`, then go ahead and re-run `yo ionic` inside your project's directory.
+Make sure you've committed (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionic`, then go ahead and re-run `yo ionic` inside your project's directory.
 
 The handsome devil is smart enough to figure out what files he is attempting to overwrite and prompts you to choose how you would like to proceed. Select `Y` for overwriting your `Gruntfile.js` and `bower.json` to stay up-to-date with the latest workflow goodies and front-end packages.
 
@@ -73,8 +69,7 @@ Overview
     ├── coverage/               - Istanbul reports
     ├── test/                   - Unit tests
     │   ├── spec/
-    ├── www/                    - Copied from app/ to be used by Cordova 
-    
+    ├── www/                    - Copied from app/ to be used by Cordova
 
 ## Workflow Commands
 
@@ -108,7 +103,7 @@ Either `emulate` your Ionic app inside a simulator or `run` it on a connected de
     $ grunt emulate:ios --lc
     $ grunt emulate:ios --target=iPad -lc
     $ grunt emulate:android --consolelogs
-    
+
     $ grunt run:ios
     $ grunt run:android
 
@@ -147,21 +142,6 @@ Launch the bundled [Ripple](http://ripple.incubator.apache.org/) emulator by fir
 
 For a Getting Started guide, FAQ, and helpful tips, please see the [documentation](docs/README.md).
 
-## Contribute
-
-See the [contributing docs](https://github.com/diegonetto/generator-ionic/blob/master/contributing.md).
-
-When submitting an issue, please follow the [guidelines](https://github.com/diegonetto/generator-ionic/blob/master/contributing.md#issue-submission). Especially important is to make sure `generator-ionic` is up-to-date, and providing the command or commands that cause the issue.
-
-
-When submitting a PR, make sure that the commit messages match the [AngularJS conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/).
-
-When submitting a bugfix, write a test that exposes the bug and fails before applying your fix. Submit the test alongside the fix.
-
-When submitting a new feature, add tests that cover the feature.
-
-For testing & debugging the generator please refer to the Yeoman Generator [testing documentation](https://github.com/yeoman/generator/wiki/Testing-generators).
-
 ## License
 
 [MIT License](http://opensource.org/licenses/mit-license.php)
@@ -170,5 +150,3 @@ For testing & debugging the generator please refer to the Yeoman Generator [test
 [travis-url]: https://travis-ci.org/diegonetto/generator-ionic
 [npm-url]:  https://npmjs.org/package/generator-ionic
 [npm-image]: http://img.shields.io/npm/v/generator-ionic.svg?style=flat
-[gittip-image]: http://img.shields.io/gittip/diegonetto.svg?style=flat
-[gittip-url]: https://www.gittip.com/diegonetto

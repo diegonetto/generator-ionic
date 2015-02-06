@@ -4,14 +4,17 @@
  * Push plugins to cordovaPlugins array after_plugin_add
  */
 var fs = require('fs');
-var _ = require('lodash');
 var packageJSON = require('../../package.json');
 
 packageJSON.cordovaPlugins = packageJSON.cordovaPlugins || [];
-_.each(process.env.CORDOVA_PLUGINS.split(','), function (plugin) {
-  if (! _.contains(packageJSON.cordovaPlugins, plugin)) {
+
+var fromEnv = process.env.CORDOVA_PLUGINS.split(',');
+for (var i = 0; i < fromEnv.length; i++) {
+	var plugin = fromEnv[i];
+
+  if (packageJSON.cordovaPlugins.indexOf(plugin) !== -1) {
     packageJSON.cordovaPlugins.push(plugin);
   }
-});
+}
 
 fs.writeFileSync('package.json', JSON.stringify(packageJSON, null, 2));

@@ -1,3 +1,18 @@
+<a name="0.7.0"></a>
+## 0.7.0 (2015-02-05)
+
+
+#### Bug Fixes
+
+* **cordova:** Remove lodash dependency from register plugin hook. ([06b7268c](http://github.com/diegonetto/generator-ionic/commit/06b7268cae4e48d4aac4e959c97537905f4efafc), closes [#145](http://github.com/diegonetto/generator-ionic/issues/145))
+
+
+#### Features
+
+* **generator:** Upgrade to yeoman-generator@0.18.6 Refactor from class structure to expanding th ([72a04bb1](http://github.com/diegonetto/generator-ionic/commit/72a04bb1b0ba6a8d9ba4a140d5e88f37b1ee2ebb))
+* **grunt:** Make ngconstant destination path configurable ([de1edbbb](http://github.com/diegonetto/generator-ionic/commit/de1edbbbfa638d257652764f5d9b119fc2c8fcfe))
+
+
 <a name="0.6.1"></a>
 ## 0.6.1 (2014-10-24)
 

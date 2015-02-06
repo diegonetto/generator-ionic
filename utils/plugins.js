@@ -4,28 +4,32 @@ module.exports = {
     name: 'plugins',
     message: 'Which Cordova plugins would you like to include?',
     choices: [{
-      value: 'org.apache.cordova.console',
-      name: 'org.apache.cordova.console',
-      checked: true
-    }, {
       value: 'org.apache.cordova.device',
       name: 'org.apache.cordova.device',
       checked: true
     }, {
-      value: 'org.apache.cordova.network-information',
-      name: 'org.apache.cordova.network-information',
-      checked: false
+      value: 'org.apache.cordova.console',
+      name: 'org.apache.cordova.console',
+      checked: true
+    }, {
+      value: 'com.ionic.keyboard',
+      name: 'com.ionic.keyboard',
+      checked: true
     }, {
       value: 'org.apache.cordova.splashscreen',
       name: 'org.apache.cordova.splashscreen',
+      checked: false
+    }, {
+      value: 'org.apache.cordova.statusbar',
+      name: 'org.apache.cordova.statusbar',
       checked: false
     }, {
       value: 'org.apache.cordova.battery-status',
       name: 'org.apache.cordova.battery-status',
       checked: false
     }, {
-      value: 'org.apache.cordova.statusbar',
-      name: 'org.apache.cordova.statusbar',
+      value: 'org.apache.cordova.network-information',
+      name: 'org.apache.cordova.network-information',
       checked: false
     }, {
       value: 'org.apache.cordova.device-motion',
