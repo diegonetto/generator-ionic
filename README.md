@@ -1,8 +1,6 @@
 ![](http://i.imgur.com/BGrt2QK.png)
 
-## Ionic Framework generator [![Build Status](https://api.travis-ci.org/JaKXz/generator-ionic.png?branch=master)](https://travis-ci.org/JaKXz/generator-ionic) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Code Climate](https://codeclimate.com/github/JaKXz/generator-ionic/badges/gpa.svg)](https://codeclimate.com/github/JaKXz/generator-ionic)
-
-**Note**: To run my version of the generator, you'll have to uninstall the original version and clone this repository and run `npm link`.
+## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
 
 > Yeoman generator for creating Ionic hybrid mobile applications using AngularJS and Cordova - lets you quickly set up a project with sensible defaults and best practices.
 
@@ -148,5 +146,7 @@ For a Getting Started guide, FAQ, and helpful tips, please see the [documentatio
 
 [MIT License](http://opensource.org/licenses/mit-license.php)
 
-[travis-image]: http://img.shields.io/travis/JaKXz/generator-ionic.svg?style=flat
-[travis-url]: https://travis-ci.org/JaKXz/generator-ionic
+[travis-image]: http://img.shields.io/travis/diegonetto/generator-ionic.svg?style=flat
+[travis-url]: https://travis-ci.org/diegonetto/generator-ionic
+[npm-url]:  https://npmjs.org/package/generator-ionic
+[npm-image]: http://img.shields.io/npm/v/generator-ionic.svg?style=flat
