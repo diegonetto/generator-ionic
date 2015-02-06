@@ -160,7 +160,7 @@ module.exports = function (grunt) {
         ignorePath:  /\.\.\//
       }<% if (compass) { %>,
       sass: {
-        src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%%= yeoman.app %>/<%%= yeoman.styles %>/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }<% } %>
     },
