@@ -161,7 +161,7 @@ module.exports = function (grunt) {
       }<% if (compass) { %>,
       sass: {
         src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}lib\//
+        ignorePath: /(\.\.\/){1,2}bower_components\//
       }<% } %>
     },
 
@@ -278,7 +278,7 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/lib/ionic/release/fonts/',
+        cwd: 'app/bower_components/ionic/release/fonts/',
         dest: '<%%= yeoman.app %>/fonts/',
         src: '*'
       },
