@@ -1,4 +1,13 @@
 <a name="0.7.0"></a>
+## 0.7.0 (2015-03-05)
+
+
+#### Bug Fixes
+
+* **generator:** Include win-spawn as a dev dep. ([dd473430](http://github.com/diegonetto/generator-ionic/commit/dd47343049c7ca8f6fd435c1392c5c8b0ae8e4cb), closes [#162](http://github.com/diegonetto/generator-ionic/issues/162))
+
+
+<a name="0.7.0"></a>
 ## 0.7.0 (2015-02-05)
 
 
