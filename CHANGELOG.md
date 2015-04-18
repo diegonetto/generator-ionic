@@ -1,3 +1,12 @@
+<a name="0.7.2"></a>
+### 0.7.2 (2015-04-18)
+
+
+#### Features
+
+* **gen:** Upgrade Ionic to RC3.. ([3f6461db](http://github.com/diegonetto/generator-ionic/commit/3f6461db9b580024328d354140647ef5ab7c8f13), closes [#181](http://github.com/diegonetto/generator-ionic/issues/181))
+
+
 <a name="0.7.1"></a>
 ### 0.7.1 (2015-04-18)
 
