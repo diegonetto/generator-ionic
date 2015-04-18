@@ -1,7 +1,7 @@
 node_modules
 www
 .idea
-.tmp
+.temp
 .sass-cache
 <%= appPath %>/bower_components
 coverage
