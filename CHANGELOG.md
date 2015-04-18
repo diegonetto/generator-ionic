@@ -1,3 +1,17 @@
+<a name="0.7.1"></a>
+### 0.7.1 (2015-04-18)
+
+
+#### Bug Fixes
+
+* **configuration:** Update config.js references to current configuration.js ([ad75aa67](http://github.com/diegonetto/generator-ionic/commit/ad75aa6793faf0791d60869093f1a7ed8193cc42))
+* **gen:** correct last remnants of "lib" reference to bowers installation path "bower_comp ([2f48dd7d](http://github.com/diegonetto/generator-ionic/commit/2f48dd7d9908389bf3c0943aae8a8065eac0bde8))
+* **gitignore:**
+  * .tmp --> .temp ([9913a111](http://github.com/diegonetto/generator-ionic/commit/9913a111411cc7732bc806cf6a4cafda3f7f3cfc))
+  * config.js --> configuration.js ([b1a2cf5e](http://github.com/diegonetto/generator-ionic/commit/b1a2cf5e7551c8b95aef654c79f4c4f67ac335fd))
+* **jshintignore:** config.js --> configuration.js ([8cd7ee28](http://github.com/diegonetto/generator-ionic/commit/8cd7ee28635b3b93e182daa941d34ea1ce5d0b2c))
+
+
 <a name="0.7.0"></a>
 ## 0.7.0 (2015-03-05)
 
