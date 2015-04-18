@@ -12,4 +12,4 @@ plugins
 *.log
 *.DS_Store
 
-app/scripts/config.js
+app/scripts/configuration.js
