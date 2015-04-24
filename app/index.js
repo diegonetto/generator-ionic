@@ -275,12 +275,12 @@ module.exports = generators.Base.extend({
       fs.chmodSync(iconsAndSplash, '755');
     },
     folderNames: function folderNames() {
-      // Rename: Scripts path (Ionics 'js' to 'scripts')
+      // Rename: CSS path (Ionics 'css' to 'styles')
       fs.rename(path.join(appPath, 'css'), path.join(appPath, 'styles'), function(err) {
           if ( err ) console.log('ERROR: ' + err);
       });
       
-      // Rename: CSS path (Ionics 'css' to 'styles')
+      // Rename: Scripts path (Ionics 'js' to 'scripts')
       fs.rename(path.join(appPath, 'js'), path.join(appPath, 'scripts'), function(err) {
           if ( err ) console.log('ERROR: ' + err);
       });
@@ -292,4 +292,3 @@ module.exports = generators.Base.extend({
     }
   }
 });
-
