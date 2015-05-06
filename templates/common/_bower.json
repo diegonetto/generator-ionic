@@ -2,7 +2,7 @@
   "name": "<%= appName %>",
   "version": "0.0.0",
   "dependencies": {
-    "ionic": "v1.0.0-rc.3",
+    "ionic": "v1.0.0-rc.5",
     "ngCordova": "v0.1.14-alpha"
   },
   "devDependencies": {
