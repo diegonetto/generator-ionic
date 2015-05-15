@@ -61,7 +61,7 @@ module.exports = function (grunt) {
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['wiredep', 'newer:copy:app']
+        tasks: ['rebuilddep', 'newer:copy:app']
       },
       html: {
         files: ['<%%= yeoman.app %>/**/*.html'],
@@ -163,6 +163,13 @@ module.exports = function (grunt) {
         src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }<% } %>
+    },
+
+    // Jsonlint on bower configuration
+    jsonlint: {
+      all: {
+        files: [{ src: ['bower.json'] }]
+      }
     },
 
     <% if (compass) { %>
@@ -449,7 +456,7 @@ module.exports = function (grunt) {
   // over to <%%= yeoman.dist %>/. Last step is running cordova prepare so we can refresh the ripple
   // browser tab to see the changes. Technically ripple runs `cordova prepare` on browser
   // refreshes, but at this time you would need to re-run the emulator to see changes.
-  grunt.registerTask('ripple', ['wiredep', 'newer:copy:app', 'ripple-emulator']);
+  grunt.registerTask('ripple', ['rebuilddep', 'newer:copy:app', 'ripple-emulator']);
   grunt.registerTask('ripple-emulator', function () {
     grunt.config.set('watch', {
       all: {
@@ -498,7 +505,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'wiredep',
+    'rebuilddep',
     'clean',
     'concurrent:test',
     'autoprefixer',
@@ -512,7 +519,7 @@ module.exports = function (grunt) {
     }
 
     grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
-    grunt.task.run(['wiredep', 'init', 'concurrent:ionic']);
+    grunt.task.run(['rebuilddep', 'init', 'concurrent:ionic']);
   });
   grunt.registerTask('emulate', function() {
     grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(), 'watch']);
@@ -529,7 +536,7 @@ module.exports = function (grunt) {
   grunt.registerTask('init', [
     'clean',
     'ngconstant:development',
-    'wiredep',
+    'rebuilddep',
     'concurrent:server',
     'autoprefixer',
     'newer:copy:app',
@@ -540,7 +547,7 @@ module.exports = function (grunt) {
   grunt.registerTask('compress', [
     'clean',
     'ngconstant:production',
-    'wiredep',
+    'rebuilddep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -558,8 +565,13 @@ module.exports = function (grunt) {
     'connect:coverage:keepalive'
   ]);
 
+  grunt.registerTask('rebuilddep', [
+    'jsonlint',
+    'wiredep'
+  ]);
+
   grunt.registerTask('default', [
-    'wiredep',
+    'rebuilddep',
     'newer:jshint',
     'karma:continuous',
     'compress'
