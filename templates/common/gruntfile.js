@@ -1,3 +1,6 @@
+/**
+ * Created by carlosmantilla on 30/06/15.
+ */
 // Generated on 2015-06-15 using generator-ionic 0.7.3
 'use strict';
 
