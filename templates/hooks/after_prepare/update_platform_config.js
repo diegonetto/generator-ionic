@@ -335,7 +335,9 @@ var platformConfig = (function(){
         _.each(platforms, function (platform) {
             try {
                 platform = platform.trim().toLowerCase();
-                platformConfig.updatePlatformConfig(platform);
+                if(platform == 'android' || platform == 'ios'){
+                    platformConfig.updatePlatformConfig(platform);
+                }
             } catch (e) {
                 process.stdout.write(e);
             }
