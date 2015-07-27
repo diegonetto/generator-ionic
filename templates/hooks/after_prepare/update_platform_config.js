@@ -337,6 +337,8 @@ var platformConfig = (function(){
                 platform = platform.trim().toLowerCase();
                 if(platform == 'android' || platform == 'ios'){
                     platformConfig.updatePlatformConfig(platform);
+                } else {
+                    console.log('Platform "' + platform + '" not supported by this hook.');
                 }
             } catch (e) {
                 process.stdout.write(e);
