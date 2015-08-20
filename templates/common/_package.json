@@ -9,7 +9,7 @@
     "grunt-autoprefixer": "~2.2.0",
     "grunt-wiredep": "^2.0.0",
     "ionic": "^1.6.4",
-    "grunt-concurrent": "~1.0.0",
+    "grunt-concurrent": "1.0.0",
     "grunt-contrib-clean": "~0.6.0",<% if (compass) { %>
     "grunt-contrib-compass": "~1.0.1",<% } %>
     "grunt-contrib-concat": "~0.5.0",
