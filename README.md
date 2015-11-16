@@ -39,6 +39,8 @@ yo ionic [app-name]
 
 Run `grunt` for building / compressing your Ionic app, `grunt serve` for a browser preview, and `grunt serve:compress` for a preview of the optimized application.
 
+Note : If `grunt serve` not opens the application then change the grunt-concurrent version using `npm install grunt-concurrent@1.0.0 --save`
+
 ## Upgrading
 Make sure you've committed (or backed up) your local changes and install the latest version of the generator via `npm install -g generator-ionic`, then go ahead and re-run `yo ionic` inside your project's directory.
 
