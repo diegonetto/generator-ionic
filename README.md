@@ -1,4 +1,7 @@
-#This is the Kondeo fork of diegonetto/generator-ionic , the project appears to be abandoned, and this fork will simply update it to current ionic versions, and also, fix many bugs that the project has (Such as the grunt concurrent versioning, and lack of browser support)
+#####This is the Kondeo fork of diegonetto/generator-ionic. The offical project appears to be abandoned, and this fork will update and fix issues reported by the community.
+
+#####To install this via npm, replacing offical Ionic.
+https://coderwall.com/p/q_gh-w/fork-and-patch-npm-moduels-hosted-on-github
 
 ![](http://i.imgur.com/BGrt2QK.png)
 
