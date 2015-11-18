@@ -1,15 +1,15 @@
-node_modules
-www
+/node_modules
+/www
 .idea
-.temp
-.sass-cache
-<%= appPath %>/bower_components
-coverage
-platforms
-plugins
+/.temp
+/.sass-cache
+/<%= appPath %>/bower_components
+/coverage
+/platforms
+/plugins
 *.swp
 *.swo
 *.log
 *.DS_Store
 
-app/scripts/configuration.js
+/app/scripts/configuration.js
