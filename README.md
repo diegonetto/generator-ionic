@@ -1,3 +1,5 @@
+#This is the Kondeo fork of diegonetto/generator-ionic , the project appears to be abandoned, and this fork will simply update it to current ionic versions, and also, fix many bugs that the project has (Such as the grunt concurrent versioning, and lack of browser support)
+
 ![](http://i.imgur.com/BGrt2QK.png)
 
 ## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
