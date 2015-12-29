@@ -1,3 +1,12 @@
+<a name="0.8.0"></a>
+## 0.8.0 (2015-12-28)
+
+
+#### Bug Fixes
+
+* **templates:** Fix a wrong check of already existing plugin ([dde29885](http://github.com/diegonetto/generator-ionic/commit/dde29885ed067f6924d11005bdcc536a06a8e837))
+
+
 <a name="0.7.2"></a>
 ### 0.7.2 (2015-04-18)
 
