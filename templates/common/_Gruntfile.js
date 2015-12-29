@@ -294,7 +294,7 @@ module.exports = function (grunt) {
         dest: '<%%= yeoman.dist %>/',
         src: [
           '**/*',
-          '!**/*.(scss,sass,css)',
+          '!**/*.{scss,sass,css}',
         ]
       },
       tmp: {
