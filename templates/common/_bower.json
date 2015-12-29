@@ -1,6 +1,6 @@
 {
   "name": "<%= appName %>",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "ionic": "v1.0.0-rc.3",
     "ngCordova": "v0.1.14-alpha"
