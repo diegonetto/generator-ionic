@@ -41,7 +41,7 @@
         <preference name="android-configChanges" value="orientation" />
         <preference name="android-theme" value="@android:style/Theme.Black.NoTitleBar" />
 
-        <config-file target="AndroidManifest.xml" parent="/*>
+        <config-file target="AndroidManifest.xml" parent="/*">
             <supports-screens
                 android:xlargeScreens="false"
                 android:largeScreens="false"
