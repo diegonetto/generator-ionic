@@ -3,7 +3,7 @@
 /**
  * Install all plugins listed in package.json
  */
-var exec = require('child_process').exec;
+var execSync = require('child_process').execSync;
 var path = require('path');
 var sys = require('sys');
 
@@ -13,7 +13,25 @@ var script = path.resolve(__dirname, '../../node_modules/cordova/bin', cmd);
 
 packageJSON.cordovaPlugins = packageJSON.cordovaPlugins || [];
 packageJSON.cordovaPlugins.forEach(function (plugin) {
-  exec(script + ' plugin add ' + plugin, function (error, stdout, stderr) {
-    sys.puts(stdout);
-  });
+
+	// If the found element is not a string, ignore it.
+	if(typeof(plugin) != "string"){return;}
+
+	// Write "Installing plugin..." but without the new line
+	process.stdout.write("Installing plugin " + plugin + "...");
+
+	var err = false;
+	try {
+		execSync(script + ' plugin add ' + plugin).toString('utf8');
+	}catch(errdata){
+		err = errdata;
+	}
+	
+	if(!err){
+		console.log("OK");
+	}else{
+		console.log("ERROR");
+		console.error(err);
+	}
+
 });
