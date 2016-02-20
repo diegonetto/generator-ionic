@@ -525,6 +525,9 @@ module.exports = function (grunt) {
   grunt.registerTask('build', function() {
     return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
   });
+  grunt.registerTask('resources', function() {
+    return grunt.task.run(['init', 'ionic:resources:' + this.args.join()]);
+  });
 
   grunt.registerTask('init', [
     'clean',

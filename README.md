@@ -122,6 +122,13 @@ Build your Ionic application for the targeted platform.
     $ grunt build:ios --device --release
     $ grunt build:android --debug
 
+### `grunt resources`
+
+Icon and splash image generation for your Ionic application.
+
+    $ grunt resources --icon
+    $ grunt resources --splash
+
 ### `grunt jshint`
 
 While running `grunt serve` or `grunt emulate`, the build system will be watching your filesystem for changes and linting your JavaScript files on the fly. However, you can invoke JSHint manually by using this command to spot check your Ionic app for linting errors.
