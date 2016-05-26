@@ -342,7 +342,7 @@ var platformConfig = (function(){
                     console.log('Platform "' + platform + '" not supported by this hook.');
                 }
             } catch (e) {
-                process.stdout.write(e);
+                process.stdout.write(e.toString());
             }
         });
     }
