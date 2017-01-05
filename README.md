@@ -1,3 +1,8 @@
+#####This is the Kondeo fork of diegonetto/generator-ionic. The offical project appears to be abandoned, and this fork will update and fix issues reported by the community.
+
+#####To install this via npm, replacing offical Ionic.
+https://coderwall.com/p/q_gh-w/fork-and-patch-npm-moduels-hosted-on-github
+
 ![](http://i.imgur.com/BGrt2QK.png)
 
 ## Ionic Framework generator [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
