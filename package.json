@@ -45,7 +45,8 @@
     "marked": "^0.3.3",
     "mocha": "^2.1.0",
     "mockery": "^1.4.0",
-    "semver": "^4.2.0"
+    "semver": "^4.2.0",
+    "win-spawn": "^2.0.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
